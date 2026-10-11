@@ -1,0 +1,882 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-12 06:36</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261012_0636</div>
+    <div class="row"><div class="card">
+<div class="title">ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration</div>
+<div class="meta-line">Authors: Jialei He, Enhe Liu, Sifan Song, Pengfei Jin, Jionglong Su, Hongbin Wang, Zhixiang Lu, Yanhao Huang, Anteng Cai, Zhengyong Jiang, Jiaman Ding, S. Kevin Zhou, Jinfeng Wang</div>
+<div class="meta-line">First: 2026-10-08T17:13:32+00:00 · Latest: 2026-10-08T17:13:32+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12337v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12337v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Anatomical continuity provides complementary information for medical image restoration, but its use requires accounting for local anatomy and variations in slice sampling. We introduce ContiLNN, which augments two-dimensional restoration backbones with bidirectional closed-form continuous-time (Bi-CfC) modules for cross-slice modeling while retaining in-plane feature extraction. Slice-index intervals modulate gates determined by local features and hidden states, enabling propagation to respond to sampling variations without numerical ODE integration. Reference-guided consistency aligns first- and second-order cross-slice intensity differences to preserve anatomical variation, while distillation from a frozen backbone helps retain in-plane fidelity. Across five training seeds, ContiLNN improves mean PSNR over Restore-RWKV by 0.1907, 1.0176, and 1.2482 dB for CT denoising, MRI super-resolution, and reduced-count PET restoration, respectively, with lower RMSE in all three tasks. CT results are descriptive for one held-out patient. PET ablations support ordered propagation beyond additional pointwise capacity. Under contiguous training, Bi-CfC achieves higher fidelity than a Bi-GRU with similar parameter counts and arithmetic costs across all tested sampling conditions. Matched seven-slice profiling shows 52.8% lower latency and 57.0% lower peak GPU memory use than Bi-GRU. Mixed-gap training improves sparse and irregular-context performance for both operators, without a uniform ranking across metrics and contexts. Experiments with fewer training patients and a second backbone further support data efficiency and backbone compatibility.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Anatomical continuity provides complementary information for medical image restoration, but its use requires accounting for local anatomy and variations in slice sampling.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</div>
+<div class="meta-line">Authors: Harris Partaourides, Sotirios Chatzis</div>
+<div class="meta-line">First: 2026-10-08T11:35:09+00:00 · Latest: 2026-10-08T11:35:09+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.11746v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.11746v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Real-time video super-resolution requires high spatio-temporal fidelity under strict latency constraints, challenging diffusion models due to their iterative sampling cost and limited temporal coordination. We propose a streaming-aware framework that adapts pretrained single-image latent diffusion models for efficient video super-resolution (VSR) by exploiting the sequential structure of video streams. Our Cross-Step Attention mechanism reuses intermediate denoising features across adjacent frames and diffusion steps, enabling temporal information exchange without explicit temporal modeling. We further introduce Trajectory-Coupled Diffusion Scheduling, which aligns adjacent diffusion states and provides cleaner intermediate representations for cross-step conditioning, improving temporal coherence. These components are integrated into a streaming inference pipeline that incrementally propagates latent states across frames, reducing the effective computational complexity from $O(N \cdot S)$ to $O(N + S)$ for $N$ frames and $S$ diffusion steps. Experiments on REDS4 and YouHQ40-Test demonstrate improved perceptual quality and temporal realism while maintaining frame-wise stability. Our method achieves over 40 FPS at $512 \times 512$ resolution after cold start, enabling real-time VSR without explicit temporal modeling.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Real-time video super-resolution requires high spatio-temporal fidelity under strict latency constraints, challenging diffusion models due to their iterative sampling cost and limited temporal coordination.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">DLC: A Metric-Guided Dynamic Loss Controller for Multi-Objective Training</div>
+<div class="meta-line">Authors: Jaewan Ko, Janghoon Choi</div>
+<div class="meta-line">First: 2026-10-08T07:56:45+00:00 · Latest: 2026-10-08T07:56:45+00:00</div>
+<div class="meta-line">Comments: Accepted to ACCV 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.11433v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.11433v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In this paper, we introduce a metric-guided dynamic loss controller (DLC) for multi-objective image restoration. Conventional image restoration pipelines usually train with a fixed weighted combination of multiple losses, without changing the relative importance of fidelity, perceptual similarity, and no-reference quality during optimization. DLC is an architecture- and loss-term-agnostic training-time controller: it does not modify the restoration architecture or introduce new differentiable loss terms, but dynamically reweights the existing training losses. During training, DLC periodically evaluates the current model on a small fixed feedback subset and uses the resulting quality metrics to update the loss-weight vector through an LLM-based controller. Because DLC operates on existing loss terms rather than task-specific architectures, the same controller formulation can be instantiated across diverse image restoration training pipelines. We evaluate DLC on three restoration domains: low-light image enhancement, deraining, and real-world super-resolution, using both reference-based and no-reference quality metrics. Across these settings, DLC considers metric-dependent trade-offs during optimization and guides training toward balanced operating points across fidelity and perceptual quality. The results show that DLC can move models toward more favorable operating points across different restoration domains, supporting its role as a practical plug-in controller for multi-objective image restoration.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In this paper, we introduce a metric-guided dynamic loss controller (DLC) for multi-objective image restoration.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Super-Resolution in The Right Latent Space: A Frozen Vision-Foundation Substrate</div>
+<div class="meta-line">Authors: Wanzhou Lei, Cuifeng Shen, Yanjin He, Maohua Li, Hua Yuan, Per-Olof Persson, Tao Lan, Kan Liu, Hanlin Tang</div>
+<div class="meta-line">First: 2026-10-03T21:42:53+00:00 · Latest: 2026-10-08T07:09:55+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04781v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.04781v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In an image latent space, the embeddings of high-resolution, natural, and sharp images form a manifold. Degradation of high-resolution images pushes their embeddings off this manifold. Real-world super-resolution (SR) then becomes the task of mapping the degraded embedding back onto this manifold --- not anywhere on the manifold, but to the point that preserves what the input still carries, both its semantics and pixel details. Every published method implements this mapping in a reconstruction-oriented latent space or pixel space. We claim these spaces are the wrong substrates for SR. Low-resolution and degraded images are embedded far from the manifold, making the mapping difficult and expensive. The lack of semantic information in these substrates also makes it difficult to navigate to the faithful point on the manifold, causing severe hallucination when degradation is heavy. Thus, restoring in a suitable latent space is crucial to the SR task. We show that the latent space of 23 fused layers of a frozen DINOv3-L is one such space that makes the SR task easier. Degraded images are embedded near the manifold. Moreover, this substrate contains a hierarchy of information, from pixel record to degradation robust semantics, guiding the model to find the faithful point on the manifold. On this substrate, a 415M decoder is trained under reconstruction and adversarial objectives to map the degraded embeddings back and decode to pixel space in one pass. The resulting model, RAESR, attains the best fidelity--perception trade-off among state-of-the-art adversarial and diffusion-based restorers on RealSR, DRealSR, LSDIR and DIV2K-Val, at 37 ms per 512 by 512 image on a single H20 GPU. Swapping the substrate for a VAE latent under an identical recipe loses on every metric.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In an image latent space, the embeddings of high-resolution, natural, and sharp images form a manifold.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</div>
+<div class="meta-line">Authors: Hanqiu Li Cai, Chema Garabito</div>
+<div class="meta-line">First: 2026-10-07T05:07:09+00:00 · Latest: 2026-10-07T05:07:09+00:00</div>
+<div class="meta-line">Comments: 19 pages, 13 figures, 6 tables. Project lead: Hanqiu Li Cai. Code and models: https://github.com/speridlabs</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.09450v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.09450v1">PDF</a> · <a href="https://github.com/speridlabs">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Pixel-space diffusion models avoid the lossy VAE of latent models, which suggests an advantage on downstream tasks where fine-grained detail matters. We test this claim along both routes to a pixel-space backbone. We pretrain Iris-3B, a 3B-parameter pixel-space text-to-image transformer, from scratch through a $256\to512\to1024$ curriculum, after first ablating the prediction target and representation alignment at $256^2$ to decide what to scale. We also convert a pretrained latent model, FLUX.2 Klein base 4B, to pixel space. We fine-tune both families for monocular depth estimation and for image restoration/super-resolution. We find no significant improvement from using a pixel-space generative prior. Fine-tuned for depth with one matched direct-regression recipe, Iris-3B is level with the latent FLUX.2 Klein and the converted pixel FLUX.2 Klein falls behind it, and on $4\times$ DIV2K restoration neither pixel model beats a latent FLUX.2 Klein fine-tune, the converted one trailing it slightly. We document the recipes, the failure modes and the remaining confounds behind this negative result. Nevertheless, Iris-3B shows that pixel-space pretraining with the pixel-transformer (PiT) head of PixelDiT scales to 3B parameters and to text-to-image quality competitive with latent models, matching Qwen-Image on OneIG under the official evaluators at $1024^2$. We release its weights and training code in the hope that they help pave the way for further work on pixel-space generation.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Pixel-space diffusion models avoid the lossy VAE of latent models, which suggests an advantage on downstream tasks where fine-grained detail matters.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">DISRQAD: Diffusion Image Super-Resolution Quality Assessment Dataset and Benchmark</div>
+<div class="meta-line">Authors: Nikita Kukuzei, Artem Borisov, Evgeney Bogatyrev, Khaled Abud, Egor Chistov, Dmitriy Vatolin</div>
+<div class="meta-line">First: 2026-10-06T20:19:15+00:00 · Latest: 2026-10-06T20:19:15+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.09077v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.09077v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Diffusion-based image super-resolution (SR) can create visually plausible detail that is not supported by the low-resolution input. We introduce DISRQAD, a subjective-quality dataset and diagnostic benchmark for this setting. It contains mean opinion scores (MOS) for 14,000 SR outputs from ten diffusion and four non-diffusion methods, spanning four low-resolution degradation conditions and x2/x4 upscaling. We evaluate 51 standard full-reference and no-reference metric configurations and 11 adapted variants. Agreement with MOS is substantially weaker on diffusion outputs: the strongest standard no-reference baseline reaches 0.431 SRCC on diffusion SR versus 0.813 on non-diffusion SR. As a case study in benchmark use, a pruned and distilled Q-ReAlign-mini student reaches 0.496 SRCC on diffusion SR. DISRQAD measures perceived output quality, not faithfulness to the input; it enables analysis of metric behavior across generator families and input conditions. Our findings reveal a substantial gap in the assessment of diffusion-based SR and provide a basis for developing quality models sensitive to diffusion-specific artifacts.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Diffusion-based image super-resolution (SR) can create visually plausible detail that is not supported by the low-resolution input.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Auto-Regressive Models Need Structural Registers: Semantic Foresight Improves Coherent Driving Video Continuation</div>
+<div class="meta-line">Authors: Ruibo Ming, Jingwei Wu, Zhewei Huang, Zhuoxuan Ju, Jianming Hu, Lihui Peng, Shuchang Zhou</div>
+<div class="meta-line">First: 2024-12-04T22:53:56+00:00 · Latest: 2026-10-06T18:08:15+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.03758v4">Abs</a> · <a href="https://arxiv.org/pdf/2412.03758v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Front-view driving video continuation is a critical component for constructing sophisticated world models. However, maintaining long-term coherence faces the fundamental challenge of mitigating &#x27;&#x27;generative degeneration&#x27;&#x27; during the auto-regressive process. This phenomenon arises when the limited attention capacity of world models becomes saturated with high-entropy pixel details over extended sequences, leading to a collapse of global scene structure and motion intensity. To address this, we introduce STRIDE (STructural RegIsters for Decoupled Extrapolation), a large vision model architecture with an enforced semantic foresight mechanism. STRIDE decouples video continuation into two sub-tasks via interleaved generation of semantic and RGB tokens: forecasting low-entropy semantic maps, and subsequently generating high-frequency visual appearance conditioned on this structure. The semantic tokens explicitly function as &#x27;&#x27;structural registers&#x27;&#x27; -- dedicated memory slots that robustly retain the scene&#x27;s long-term context and world dynamics. Furthermore, we employ an architecturally decoupled flow matching-based super-resolution module to enhance the final visual fidelity. Extensive experiments in autonomous driving scenarios demonstrate that STRIDE effectively mitigates generative degeneration, achieving minute-level, temporally consistent driving video continuation with strong generalization ability.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Front-view driving video continuation is a critical component for constructing sophisticated world models.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">RefGC-SR$^2$: Reference-guided Super-Resolution and Refinement of AI Generated Content</div>
+<div class="meta-line">Authors: Jeahun Sung, Dahyeon Kye, Soo Ye Kim, Jihyong Oh</div>
+<div class="meta-line">First: 2026-06-13T07:04:36+00:00 · Latest: 2026-10-06T11:27:40+00:00</div>
+<div class="meta-line">Comments: The first two authors contributed equally to this work. The last two authors are co-corresponding authors. Please visit our project page at https://cmlab-korea.github.io/RefGC-SR2/</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.15158v3">Abs</a> · <a href="https://arxiv.org/pdf/2606.15158v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://cmlab-korea.github.io/RefGC-SR2/">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Reference-guided generation (e.g., object compositing, customization) has progressed rapidly, yet current pipelines share a fundamental limitation: the object-centric high-resolution reference image (HRRI) provided by users is downsampled to a fixed low-resolution (LR) before being fed into the model, so the fine-grained details are discarded before the output is even produced. In addition, the generation step then introduces its own artifacts (e.g., identity distortion) on top of this loss. Existing reference-guided generated content refinement (RefGCR) methods can correct some of these artifacts but still operate in the LR domain; reference-guided super-resolution (RefSR) methods recover resolution but assume natural-image degradations and ignore the artifact distribution of generative pipelines. To address both gaps in a single formulation, we introduce a new task: reference-guided generated content super-resolution-refinement (RefGC-SR$^2$), where the original HRRI is reused at the post-processing stage to recover lost details, refine generative artifacts, and upscale the output simultaneously. We construct the first real-world triplet data generation pipeline for this RefGC-SR$^2$ task, training a diptych-conditioned generator to synthesize paired low-quality anchors that public pretrained models cannot provide. We further present a frequency-aware diffusion transformer model for RefGC-SR$^2$ that selectively injects fine details from the HRRI while removing generative artifacts. Extensive experiments demonstrate that our RefGC-SR$^2$ model successfully (i) refines the object identity faithfully with respect to the reference, and (ii) recovers high-resolution details, so that the final result is significantly higher quality and practically more usable compared to existing RefGCR and RefSR baselines.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Reference-guided generation (e.g., object compositing, customization) has progressed rapidly, yet current pipelines share a fundamental limitation: the object-centric high-resolution reference image (HRRI) provided by users is downsampled to a fixed low-resolution (LR) before being fed into the model, so the fine-grained details are discarded before the output is even produced.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Multi-Task Partially Supervised Learning for Super-Resolution and Semantic Segmentation on Earth Observation data</div>
+<div class="meta-line">Authors: Hoàng-Ân Lê, Minh-Tan Pham, Solange Lemai-Chenevier, Daniel Greslou</div>
+<div class="meta-line">Venue: 2026 IEEE International Conference on Image Processing (ICIP), Tampere, Finland, 2026, pp. 1-6,</div>
+<div class="meta-line">First: 2026-10-05T14:13:18+00:00 · Latest: 2026-10-05T14:13:18+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.06389v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.06389v1">PDF</a> · <a href="https://github.com/lhoangan/munera">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Super-resolution and semantic segmentation are known to benefit one another, especially in the Earth observation context. However, learning both tasks in a joint model often requires both task annotations, which is impractical and expensive. In this paper, we study the multi-task partially supervised learning paradigm for both tasks, where each example is assumed to have only a single-task annotation. To that end, we examine two multi-task architectural variations, the sequential and shared variants, and then propose a hybrid variant and a re-projection loss to benefit from the shared representation and enforce image quality of super-resolution when training with semantic segmentation. Experiments show favorable results compared to the SOTA sequential variant. Source code will be published at https://github.com/lhoangan/munera.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Super-resolution and semantic segmentation are known to benefit one another, especially in the Earth observation context.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">AstraSR: Real-World Thermal Super-Resolution with GPT-6 Astra</div>
+<div class="meta-line">Authors: Mengyuan Li, Changhong Fu, Jun Zhang, Ziyu Lu, Yuhang Zhang, Haobo Zuo</div>
+<div class="meta-line">First: 2026-10-05T07:25:15+00:00 · Latest: 2026-10-05T07:25:15+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.05910v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.05910v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Real-world thermal super-resolution (SR) is constrained by limited sensor resolution and the difficulty of obtaining corresponding high-resolution (HR) observations for direct model supervision. Conventional SR methods typically construct training pairs by treating captured thermal images with real-world degradations as HR references and applying predefined degradation to generate synthetic low-resolution (LR) inputs. Such a construction not only introduces a domain gap between synthetic and captured LR observations but also retains acquisition degradations in the supervision. To address this issue, we propose AstraSR, a real-world thermal SR method guided by GPT-6 Astra, a frontier multimodal generative model endowed with emergent and transformative visual capabilities. Specifically, we construct a dataset of image pairs by using captured LR thermal images to condition GPT-based HR reference. We develop a direct generative supervision strategy that learns from captured thermal inputs paired with GPT-generated HR references. Pixel, gradient, and perceptual losses jointly supervise the transfer of intensity patterns, structural boundaries, and visual details from the generated references. Qualitative comparisons with seven existing state-of-the-art real-world SR methods show continuous object contours, distinct structural boundaries, and smooth intensity transitions in the thermal scenes. These results demonstrate that AstraSR outperforms existing real-world SR methods in both thermal clarity and structural coherence.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Real-world thermal super-resolution (SR) is constrained by limited sensor resolution and the difficulty of obtaining corresponding high-resolution (HR) observations for direct model supervision.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Kandinsky 6.0 Video: Foundation Models for Synchronized Video and Audio Generation</div>
+<div class="meta-line">Authors: Team Kandinsky, Julia Agafonova, Bulat Akhmatov, Mikhail Aksyutin, Grigorii Alekseenko, Anastasia Aliaskina, Olga Androsova, Vladimir Arkhipkin, Anna Averchenkova, Alexander Belykh, Serafima Bocharova, Sofiya Bogakovskaya, Anton Bukashkin, Mark Bulygin, Kirill Buzygin, Irina Cheremnykh, Kirill Chernyshev, Mikhail Chernyshov, Vladimir Chernyy, David Chikovani, Georgy Daniltsev, Denis Dimitrov, Anna Dmitrienko, Vladimir Dokholyan, Sergey Emelyanov, Dmitry Ermilov, Georgii Fedorov, Polina Gavrilova, Nikolai Gerasimenko, Aleksandr Gordeev, Andrey Inozemtsev, Andrei Ivaniuta, Alexander Ivanov, Mikhail Karaev, Anastasiia Kargapoltseva, Ivan Kirillov, Nikita Kiselev, Valeria Kobenko, Yury Kolabushin, Denis Koposov, Anatoly Korobov, Vladimir Korviakov, Kirill Kozlov, Denis Krzhivokolskiy, Konstantin Kuklev, Alexander Kunitsyn, Sergey Kuzin, Vladislav Lakhtionov, Alexey Letunovskiy, Maxim Litvinov, Alexander Lyulkov, Georgy Makarov, Kirill Malakhov, Egor Malykh, Mikhail Mamaev, Dmitrii Mikhailov, Polina Mikhailova, Ivan Mikheev, Elizaveta Muromtseva, Nikolai Nazarkin, Tatiana Nikulina, Lev Novitskiy, Stanislav Onuchin, Nikita Osterov, Denis Parkhomenko, Anatoliy Parpara, Vladimir Polovnikov, Konstantin Reznikov, Azat Saginbaev, Nikita Samsonov, Alexander Sentsov, Nikita Shaimov, Artem Sherstyuk, Andrey Shutkin, Egor Silvestrov, Bulat Suleimanov, Matvey Suprunov, Sergey Taranov, Irina Tolstykh, Tatiana Trofimuk, Ilya Trushkin, Aleksandra Tsybina, Olga Varlashina, Viacheslav Vasilev, Ilya Vasiliev, Eugeny Vilisov, Sergey Yakubson, Konstantin Zakharov</div>
+<div class="meta-line">First: 2026-10-04T23:19:20+00:00 · Latest: 2026-10-04T23:19:20+00:00</div>
+<div class="meta-line">Comments: Technical report on the open-source T2AV model. GitHub: https://github.com/kandinskylab/kandinsky-6</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.05608v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.05608v1">PDF</a> · <a href="https://github.com/kandinskylab/kandinsky-6">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We present Kandinsky 6.0 Video, a family of foundation diffusion models for synchronized text-to-audio-video generation, comprising Kandinsky 6.0 Video Lite (3B parameters) and Kandinsky 6.0 Video Pro (29B parameters). Both models generate 5-second video clips with synchronized 44 kHz audio, including lip-sync, in text-to-audio-video (T2AV) and image-to-audio-video (I2AV) modes; a built-in super-resolution model raises the output resolution to Full-HD (1920$\times$1080). Building on the video generation capabilities of Kandinsky 5.0, Kandinsky 6.0 Video employs a dual-stream CrossDiT architecture that connects a pretrained video stream and a newly trained audio stream through bidirectional cross-attention for temporal and semantic alignment. Our continuous pretraining strategy first trains the audio stream from scratch on large-scale audio corpora and then trains both streams jointly on paired audio-video data while preserving unimodal fidelity; pretraining is followed by supervised fine-tuning, reinforcement-learning-based post-training, and distillation. In side-by-side human evaluation, Kandinsky 6.0 Video Pro clearly outperforms its predecessor, Kandinsky 5.0 Video Pro, and remains competitive with leading audio-video generation models, particularly in speech quality. To accelerate open research and deployment in multimedia generation, we release the code, model checkpoints, and diffusers integration under the MIT license.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We present Kandinsky 6.0 Video, a family of foundation diffusion models for synchronized text-to-audio-video generation, comprising Kandinsky 6.0 Video Lite (3B parameters) and Kandinsky 6.0 Video Pro (29B parameters).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TIRMamba: A Thermal-Prior-Modulated State-Space Network for Sub-Million-Parameter Infrared Image Super-Resolution</div>
+<div class="meta-line">Authors: Chun-An Lin, Tsung-Jung Liu, Yen-Chieh Ouyang</div>
+<div class="meta-line">First: 2026-10-04T12:45:13+00:00 · Latest: 2026-10-04T12:45:13+00:00</div>
+<div class="meta-line">Comments: 13 pages, 4 figures, 5 tables. Submitted to IEEE Transactions on Geoscience and Remote Sensing. Code and trained models will be released at https://github.com/julian135707/TIRMamba upon acceptance</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.05182v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.05182v1">PDF</a> · <a href="https://github.com/julian135707/TIRMamba">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Infrared image super-resolution is currently led by Mamba-based networks with 26 to 37 million parameters, which are difficult to deploy on the airborne and handheld platforms where thermal imaging is most needed. This paper presents TIRMamba, a network with 896K to 910K parameters for single-channel thermal imagery. A Thermal Prior Highway computes gradient, local-contrast and spectral cues once at the input and, through one adapter per residual group, modulates a weight-tied bidirectional state-space trunk and gates its dual-scale detail branch; a tri-path reconstruction adds the learned residual to a bicubic radiometric baseline. Because the standard benchmark provides only 265 infrared training images and evaluates fusion products on full images, we train with a replay strategy: grayscale DIV2K pre-training followed by fine-tuning on 64-pixel patches drawn with equal probability from the infrared and natural corpora. At scale factor 4, TIRMamba matches the strongest protocol-trained methods on both official test sets with 29 to 40 times fewer parameters and 2.8 to 9.4 times lower latency; at scale factor 2 it gives the highest SSIM on both. A variant with prior-conditioned selectivity, TIRMamba-Rad, corrects a 3 dB raw-thermal failure of an intermediate size-invariant design and gives the best results at scale factor 4 on raw-thermal, unmanned-aerial-vehicle and independent-sensor test sets. Code and trained models will be released at https://github.com/julian135707/TIRMamba upon acceptance.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Infrared image super-resolution is currently led by Mamba-based networks with 26 to 37 million parameters, which are difficult to deploy on the airborne and handheld platforms where thermal imaging is most needed.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">DriftSR: One-Step Real-World Image Super-Resolution via Distribution Drifting</div>
+<div class="meta-line">Authors: Wei Zhu, Kai Zhang, Yu Zheng, Zhaopeng Yang, Lei Luo, Yong Guo, Jian Yang</div>
+<div class="meta-line">First: 2026-10-03T23:54:51+00:00 · Latest: 2026-10-03T23:54:51+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04819v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.04819v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">One-step real-world image super-resolution (Real-ISR) offers efficient inference, but recovering realistic and perceptually rich details often relies on score distillation or adversarial learning, introducing additional trainable components and making optimization more cumbersome. To this end, we propose DriftSR, a one-step Real-ISR framework that leverages pretrained diffusion priors through distribution drifting. Specifically, we perform drifting in the frozen intermediate representation space of a pretrained diffusion model, without introducing an additional task-specific feature encoder. Building on this space, we introduce Spatial Feature Drifting, which treats spatial features rather than entire images as distributional samples, enabling denser supervision for distribution alignment. To mitigate structural deviations, we further introduce Structure-Modulated Guidance, which adaptively refines drifting guidance according to local structural consistency with the LQ input. Consequently, DriftSR optimizes only the one-step generator, without auxiliary distillation branches or adversarial discriminators. Extensive experiments on three real-world benchmarks demonstrate that DriftSR delivers high-quality super-resolution reconstruction with efficient one-step inference.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">One-step real-world image super-resolution (Real-ISR) offers efficient inference, but recovering realistic and perceptually rich details often relies on score distillation or adversarial learning, introducing additional trainable components and making optimization more cumbersome.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Any-scale Object Detection using Arbitrary-scaled Images</div>
+<div class="meta-line">Authors: Kazutoshi Akita, Norimichi Ukita</div>
+<div class="meta-line">First: 2026-10-03T07:16:03+00:00 · Latest: 2026-10-03T07:16:03+00:00</div>
+<div class="meta-line">Comments: MVA2025. 6 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04346v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.04346v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">This paper proposes any-scale object detection using arbitrary-scale super-resolution for continuously rescaling object images, while general multi-scale object detection uses discretely rescaled appearance representations. However, a naive usage of super-resolution produces many false-positive detections if many super-resolution images are independently fed into an object detector. Our method suppresses these false positives by predicting scale proposal maps, each of which represents a set of pixels appropriate for each super-resolution scale.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This paper proposes any-scale object detection using arbitrary-scale super-resolution for continuously rescaling object images, while general multi-scale object detection uses discretely rescaled appearance representations.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Stochastic Adaptive Fourier Decomposition for Operator Learning</div>
+<div class="meta-line">Authors: Pengqing Shi, Liming Zhang, Tao Qian, Stephen Tierney, Jie Yin, Junbin Gao</div>
+<div class="meta-line">First: 2026-10-03T03:03:13+00:00 · Latest: 2026-10-03T03:03:13+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04241v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.04241v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Fourier Neural Operators (FNOs) offer an efficient paradigm for solving partial differential equations (PDEs). However, FNOs rely on a fixed Fourier basis and hard frequency truncation, which inherently limit their ability to model non-periodic, localized, and fine-scale solution structures. We propose the Stochastic Adaptive Fourier Decomposition Neural Operator (SAFDNO), a spectral neural operator that replaces predefined Fourier modes with an adaptive Takenaka-Malmquist (TM) orthonormal system derived from the theory of Stochastic Adaptive Fourier Decomposition (SAFD). Instead of performing an expensive greedy pole search in classical SAFD, SAFDNO amortizes stochastic pole selection through a neural pole predictor and constructs the adaptive TM system directly from latent features. The resulting operator performs learned filtering on coefficients of analytic branches in the Hardy space with respect to the input-adaptive TM system, preserving the global receptive field of spectral operators while providing a more flexible representation than using fixed spectral bases. Across nine PDE benchmark problems, SAFDNO achieves the best performance on all six regular-grid problems among strong neural operator baselines, with especially notable gains on Darcy, Burgers, and Navier-Stokes, where fixed Fourier modes are often less effective at modeling localized oscillations, sharp transitions, and multiscale structures. SAFDNO also exhibits stronger zero-shot super-resolution performance and shows less performance degradation when deployed on finer discretizations. These results suggest that the input-adaptive TM system provides a promising alternative to fixed spectral representations for neural operator learning.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Fourier Neural Operators (FNOs) offer an efficient paradigm for solving partial differential equations (PDEs).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Consecutive Posterior Fusion for Diffusive Recovery of Unobservable Image Structures</div>
+<div class="meta-line">Authors: Elena Morotti, Davide Evangelista, Elena Loli Piccolomini</div>
+<div class="meta-line">First: 2026-10-02T13:05:36+00:00 · Latest: 2026-10-02T13:05:36+00:00</div>
+<div class="meta-line">Comments: 21 pages, 7 figures, 2 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.03261v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.03261v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Solving severely ill-posed imaging inverse problems requires recovering image structures that are unobservable or weakly constrained by the measurements. Diffusion models provide expressive learned priors for inferring such missing information, while posterior sampling incorporates measurement consistency along the reverse process. Standard diffusion posterior samplers, however, rely on instantaneous measurement-aware estimates, without explicitly exploiting information carried by previous posterior corrections.
+  We introduce Consecutive Posterior Fusion Denoising Diffusion Null-Space Models (CPF-DDNM), an inference-time strategy that fuses consecutive measurement-aware estimates to improve the diffusive recovery of unobservable image structures, without requiring retraining or additional denoiser evaluations. We instantiate this principle within DDNM, whose range/null-space decomposition reveals that consecutive fusion preserves the measurement-determined component while acting exclusively on the prior-driven null-space estimate. We thus provide a geometric interpretation of CPF-DDNM and a local error analysis that characterizes the optimal time-dependent fusion coefficient, including the extrapolative regime.
+  Experiments on sparse-view and simulated low-dose computed tomography, as well as medical image super-resolution, show consistent improvements over DDNM and competitive performance against diffusion-based inverse solvers.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Solving severely ill-posed imaging inverse problems requires recovering image structures that are unobservable or weakly constrained by the measurements.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">GB-LSR: Local Spectral Decoding with a Learned Global Bandwidth for Arbitrary-Scale Super-Resolution</div>
+<div class="meta-line">Authors: Max Shad, Naeem Khoshnevis</div>
+<div class="meta-line">First: 2026-06-17T21:50:05+00:00 · Latest: 2026-10-02T07:10:25+00:00</div>
+<div class="meta-line">Comments: 28 pages, 11 figures, 16 tables; v2: substantially revised and retitled; the main evaluation is now arbitrary-scale super-resolution against released checkpoints, and the native-reconstruction experiments are a design study of GB-LSR variants</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.19617v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.19617v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We present GB-LSR (Global-Bandwidth Local Spectral Representation), a fixed-grid local spectral representation for continuous image decoding. The image domain is partitioned into non-overlapping square patches. Each patch carries coefficients for a truncated Fourier basis, predicted by a single linear projection from shared convolutional-encoder features, and one trainable scalar bandwidth is shared across every patch and every image. As in earlier local spectral decoders, decoding at a continuous coordinate is a fixed-size basis contraction whose cost is set by the spectral cutoff; GB-LSR learns the bandwidth of that basis instead of fixing it. We evaluate an arbitrary-scale super-resolution extension, GB-LSR-Scalar-ASR, against the authors&#x27; released LIIF, LTE, and SRNO checkpoints on the same RDN encoder, with every method scored under one protocol and timed in one session per scale, each on one GPU. It runs 1.25x faster than LIIF-RDN at x4 and as fast as SRNO-RDN, whose released code uses 15 times as much peak memory on Urban100. It trails the three encoder-matched baselines by 0.07 to 0.79 dB PSNR-Y in distribution, SRNO-RDN by 0.35 dB on average. Removing the local ensemble raises the speedup to 2.41x over LIIF-RDN and 1.95x over SRNO-RDN at x4, and to 3.00x and 2.41x at x8, without changing PSNR-Y beyond seed variation, at the cost of value jumps at cell boundaries of 0.22 gray levels (of 255) on average at x4. Against the EDSR-baseline checkpoints of five recent methods at x4, GB-LSR-Scalar-ASR scores above or within 0.17 dB on PSNR-Y of LMF, SRNO-EDSR, and OPE-SR-EDSR (1.39 to 6.43 million parameters against 22.02) and 0.14 to 0.57 dB below GSASR and Thera (20.44 and 5.85 million), and has a higher mean LPIPS at x4 than every baseline.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We present GB-LSR (Global-Bandwidth Local Spectral Representation), a fixed-grid local spectral representation for continuous image decoding.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">GENERIC-FNO: Embedding Energy Conservation and Entropy Production into Fourier Neural Operators</div>
+<div class="meta-line">Authors: Jason Sulskis, Sathya Ravi</div>
+<div class="meta-line">First: 2026-06-06T21:24:41+00:00 · Latest: 2026-10-01T21:07:25+00:00</div>
+<div class="meta-line">Comments: Under review at TMLR</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.08343v7">Abs</a> · <a href="https://arxiv.org/pdf/2606.08343v7">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions. Prior structure-preserving neural operators enforce at most one conservation law or a Hamiltonian form, and thermodynamically consistent learning has been confined to finite-dimensional, graph, or particle systems. GENERIC-FNO learns the energy and entropy functionals as neural operators and builds the reversible and irreversible operators as diagonal Fourier multipliers flanked by rank-one projections that enforce both degeneracy conditions exactly, by construction, with no penalty, update projection, or residual; the Jacobi identity is not enforced. The identities hold to machine precision (~10^-13) for any initialization, dimension, or resolution, so the continuous-time dynamics conserve the learned energy and produce the learned entropy exactly, with explicit time stepping adding only an O(dt^2) drift. These are guarantees about the learned functionals within GENERIC&#x27;s scope of closed conservative-dissipative dynamics, not a certificate of physical accuracy, and the (E,S,L,M) decomposition is not unique; we make this gauge freedom explicit and propose a gauge-invariant dissipation diagnostic independent of the learned functionals. Across three backbones (1D/2D FNO, DeepONet) and four canonical scalar PDEs, the guarantees transfer zero-shot over a 4x super-resolution range and hold in 3D; the diagnostic identifies the reversible and the most dissipative system in every backbone; and over 200-step rollouts, where every unconstrained model we test diverges or collapses, GENERIC-FNO stays bounded, at half the parameters but 4-10x the compute, while losing accuracy on pure transport and on the smallest 1D backbone.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Convergent Plug-and-Play Image Restoration with Annealed Noise Levels</div>
+<div class="meta-line">Authors: Samuel Hurault</div>
+<div class="meta-line">First: 2026-09-26T09:12:06+00:00 · Latest: 2026-10-01T17:00:14+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.32393v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.32393v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Plug-and-Play (PnP) methods solve imaging inverse problems by incorporating deep denoisers into iterative optimization algorithms. Although practical implementations often decrease the denoiser noise level $σ$ along iterations, most existing convergence analyses assume a fixed denoiser. In this work, we establish convergence guarantees for a broad family of Plug-and-Play algorithms with annealed noise level, spanning deterministic methods (RED--GD and PnP--PGD) and stochastic methods (SNORE, equivariant RED, and a variant of PnP--Flow). For each method, we identify an explicit, nonconvex objective associated with the terminal denoising level and prove asymptotic stationarity of the iterates with respect to this objective. Our analysis does not prescribe any decay rate for the noise schedule, and our assumptions cover both learned gradient-step denoisers and exact MMSE denoisers. Overall, our theoretical results bridge the gap between existing PnP convergence theory and the decreasing-denoising practices used by state-of-the-art image restoration methods. We empirically demonstrate the benefits of such schedules and illustrate the predicted convergence behavior on several imaging inverse problems, including inpainting, super-resolution, demosaicing and tomography.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Plug-and-Play (PnP) methods solve imaging inverse problems by incorporating deep denoisers into iterative optimization algorithms.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Trajectory Stitching for Solving Inverse Problems with Flow-Based Models</div>
+<div class="meta-line">Authors: Alexander Denker, Zeljko Kereta, Carola-Bibiane Schönlieb, Moshe Eliasof</div>
+<div class="meta-line">First: 2026-02-09T11:36:41+00:00 · Latest: 2026-10-01T09:13:52+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2602.08538v2">Abs</a> · <a href="https://arxiv.org/pdf/2602.08538v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Flow-based generative models have emerged as powerful priors for solving inverse problems. One option is to directly optimize the initial latent code (noise), such that the flow output solves the inverse problem. However, this requires backpropagating through the entire generative trajectory, incurring high memory costs and numerical instability. We propose MS-Flow, which represents the trajectory as a sequence of intermediate latent states rather than a single initial code. By enforcing the flow dynamics locally and coupling segments through trajectory-matching penalties, MS-Flow alternates between updating intermediate latent states and enforcing consistency with observed data. This reduces memory consumption while improving reconstruction quality. We demonstrate the effectiveness of MS-Flow over existing methods on image recovery and inverse problems, including inpainting, super-resolution, and computed tomography.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Flow-based generative models have emerged as powerful priors for solving inverse problems.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Principled Design of Diffusion-based Optimizers for Inverse Problems</div>
+<div class="meta-line">Authors: Julio Oscanoa, Irmak Sivgin, Cagan Alkan, Daniel Ennis, John Pauly, Mert Pilanci, Shreyas Vasanawala</div>
+<div class="meta-line">First: 2026-05-12T04:25:49+00:00 · Latest: 2026-10-01T07:28:56+00:00</div>
+<div class="meta-line">Comments: 34 pages, 7 figures, 5 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.11506v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.11506v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Score-based diffusion models achieve state-of-the-art performance for inverse problems, but their practical deployment is hindered by long inference times and cumbersome hyperparameter tuning. While pretrained diffusion models can be reused across tasks without retraining, inference-time hyperparameters such as the noise schedule and posterior sampling weights typically require ad-hoc adjustment for each problem setup. We propose principled reparameterizations that induce invariances, allowing the same hyperparameters to be reused across multiple problems without re-tuning. In addition, building on the RED-diff framework, which reformulates posterior sampling as an optimization problem, we further develop the OptDiff pipeline. OptDiff provides a simplified tuning framework that facilitates the integration of convex optimization tools to accelerate inference. Experiments on image reconstruction, deblurring, and super-resolution show substantial speedups and improved image quality.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Score-based diffusion models achieve state-of-the-art performance for inverse problems, but their practical deployment is hindered by long inference times and cumbersome hyperparameter tuning.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">SR-Ground: Image Quality Grounding for Super-Resolved Content</div>
+<div class="meta-line">Authors: Artem Borisov, Evgeney Bogatyrev, Khaled Abud, Dmitriy Vatolin</div>
+<div class="meta-line">First: 2026-05-20T14:33:13+00:00 · Latest: 2026-09-30T22:45:59+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.21244v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.21244v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Super-Resolution (SR) has advanced rapidly in recent years, with diffusion-based models achieving unprecedented fidelity at the cost of introducing new types of visual artifacts. While existing Image Quality Assessment (IQA) methods provide holistic quality scores, they lack interpretability and fail to distinguish between different artifact types arising from modern SR approaches. To address this gap, we introduce SR-Ground, a large-scale dataset specifically designed for fine-grained artifact segmentation in super-resolved images. The dataset comprises images processed by a diverse set of state-of-the-art SR models, with pixel-level annotations for multiple artifact categories. We conduct a large-scale crowdsourcing study involving 1,062 participants to validate and refine automatically generated segmentations, resulting in a highquality dataset of 63,000 images spanning 6 distinct artifact types. We demonstrate that training IQA models with grounding capabilities on SR-Ground significantly improves performance on downstream tasks. Furthermore, we introduce a fine-tuning pipeline that leverages our grounding model to reduce perceptible artifacts in SR outputs, showcasing the practical utility of our dataset. On a separate benchmark of 1,000 outputs from five unseen SR methods, an Low-Resolution-referenced grounding model significantly improves prominence alignment over its no-reference counterpart and performs best on native real-world datasets of Low-Resolution images without High-Resolution Ground-Truth.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Super-Resolution (SR) has advanced rapidly in recent years, with diffusion-based models achieving unprecedented fidelity at the cost of introducing new types of visual artifacts.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">End-to-End Historical Music Restoration in Latent Space</div>
+<div class="meta-line">Authors: Steven Cho, Junghyun Koo, Raphael Lafargue, Tushar Dhyani, Eloi Moliner, Yuki Mitsufuji</div>
+<div class="meta-line">Venue: ICASSP 2027</div>
+<div class="meta-line">First: 2026-09-30T19:11:36+00:00 · Latest: 2026-09-30T19:11:36+00:00</div>
+<div class="meta-line">Comments: 5 pages, 2 figures, 3 tables; submitted to ICASSP 2027. Code and audio demos available at the project repository</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.00607v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.00607v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Historical music restoration (HMR) has almost exclusively focused on constrained problems such as Super-Resolution or the restoration of solo pieces, under-exploring the general task of restoring orchestral historical music, which has multiple instruments. This under-exploration is largely because the HMR domain, early-20th-century recordings, has no pre-degradation ground-truth pairs, making the restoration task unsupervised and more challenging. This paper presents a supervised end-to-end orchestral HMR benchmark by exploring both the synthetic degradation functions and the end-to-end generative deep-learning restoration methods. We simulate the historical recording degradation chain more faithfully than prior work, which makes orchestral restoration into a tractable supervised problem. A latent flow-matching model trained on the resulting synthetic pairs outperforms existing HMR baselines on intrusive, non-intrusive, and subjective evaluations. We also curate and release a 9.3-hour license-free, unpaired, historical classical-music test set, along with code and audio demos.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Historical music restoration (HMR) has almost exclusively focused on constrained problems such as Super-Resolution or the restoration of solo pieces, under-exploring the general task of restoring orchestral historical music, which has multiple instruments.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Super-Resolving Unseen Hyperspectral Sensors at Any Scale via Spatial Operators</div>
+<div class="meta-line">Authors: Ji-Xuan He, Guohang Zhuang, Bo Junge, Tingyi Li, Lingchen, Miaomiao Cai, Yanan Qiao, Xiujin Liu, Junfeng Fang</div>
+<div class="meta-line">First: 2026-09-30T15:12:47+00:00 · Latest: 2026-09-30T15:12:47+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39926v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39926v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Achieving cross-sensor generalization and arbitrary-scale reconstruction with a single model remains challenging in hyperspectral super-resolution (HSR). Although recent methods support arbitrary-scale reconstruction, applying them to new sensors or scales beyond the training range often requires additional data and computation to maintain reconstruction quality. To address these challenges, we propose OmniHSR, which predicts band-shared spatial operators rather than spectral values. Cross-Spectral Mapping (CSM) resamples inputs with any number of bands to fixed reference positions and predicts local operators with Gaussian supports. Continuous Operator-Field Reconstruction (COFR) composes these operators into a continuous field and applies them to all original bands for arbitrary-scale reconstruction. Experiments demonstrate that operator prediction outperforms direct spectral-value prediction on all seven datasets. Trained solely on ARAD with only 0.538M parameters, OmniHSR outperforms all directly transferred baselines on six unseen datasets without target-domain training data or adaptation. Across twelve upsampling factors from $\times2$ to $\times48$, it improves average PSNR on Pavia U and Chikusei by 0.55 dB over the strongest baseline. It also surpasses baselines trained from scratch or adapted on the target sensor and achieves up to $36\times$ faster inference. Our code will be publicly released soon.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Achieving cross-sensor generalization and arbitrary-scale reconstruction with a single model remains challenging in hyperspectral super-resolution (HSR).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">FANVIDv2: Evaluating Video Super-Resolution by Face and Licence-Plate Recognition Under Compound Degradation</div>
+<div class="meta-line">Authors: Kavitha Viswanathan, Vrinda Goel, Shlesh Gholap, Devayan Ghosh, Madhav Gupta, Dhruvi Ganatra, Sanket Potdar, Amit Sethi</div>
+<div class="meta-line">First: 2026-09-30T12:52:12+00:00 · Latest: 2026-09-30T12:52:12+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39649v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39649v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Video super-resolution (VSR) is normally judged by PSNR and SSIM on clips that were downsampled bicubically, although in surveillance its purpose is to make faces and licence plates \emph{recognisable}. We present FANVIDv2, a benchmark that scores VSR by what a recognition pipeline can do with its output. FANVIDv2 provides $320\times180$ low-resolution (LR) clips with high-resolution (HR) references for 48 public figures (with one HR gallery image each) and 375 licence-plate clips covering 360 distinct plate strings. LR clips are generated with a randomised compound degradation (blur, resize jitter, sensor noise, JPEG compression, final downsampling) rather than bicubic downsampling alone. Two metrics score recognition \emph{inside} detections: FaceRecBox rewards a face only if it is localised and correctly identified, and TextRecBox scores plate transcriptions by normalised edit distance weighted by localisation quality. With a 2.3\,M-parameter VSR baseline (RCDM), FaceRecBox rises from 0.6864 to 0.7222, identity accuracy on matched faces from 84.35\% to 86.93\%, and TextRecBox from 0.3088 to 0.3667; a residual-map gated variant (RCDM-RMGF) reaches 0.3801 on plates. We describe the degradation model, the baseline architectures and the scorers in detail, and release annotations, metadata, download and degradation scripts and evaluation code.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Video super-resolution (VSR) is normally judged by PSNR and SSIM on clips that were downsampled bicubically, although in surveillance its purpose is to make faces and licence plates \emph{recognisable}.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Decoupling Multi-Contrast Super-Resolution: Self-Supervised Implicit Re-Representation for Unpaired Cross-Modal Synthesis</div>
+<div class="meta-line">Authors: Yinzhe Wu, Hongyu Rui, Fanwen Wang, Jiahao Huang, Zhenxuan Zhang, Haosen Zhang, Zi Wang, Guang Yang</div>
+<div class="meta-line">First: 2025-05-09T07:48:52+00:00 · Latest: 2026-09-30T07:32:18+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.05855v4">Abs</a> · <a href="https://arxiv.org/pdf/2505.05855v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Multi-contrast super-resolution (MCSR) is crucial for enhancing MRI but current deep learning methods are limited. They typically require large, paired low- and high-resolution (LR/HR) training datasets, which are scarce, and are trained for fixed upsampling scales. While recent self-supervised methods remove the paired data requirement, they fail to leverage valuable population-level priors. In this work, we propose a novel, decoupled MCSR framework that resolves both limitations. We reformulate MCSR into two stages: (1) an unpaired cross-modal synthesis (uCMS) module, trained once on unpaired population data to learn a robust anatomical prior; and (2) a lightweight, patient-specific implicit re-representation (IrR) module. This IrR module is optimized in a self-supervised manner to fuse the population prior with the subject&#x27;s own LR target data. This design uniquely fuses population-level knowledge with patient-specific fidelity without requiring paired target-domain LR/HR training data or paired cross-modal HR reference-target training data. Here, &#x27;unpaired&#x27; refers to the population-level training setting; at subject-specific inference, as in standard MCSR, the method uses a matched HR reference image from another contrast together with the subject&#x27;s LR target image. By building the IrR module on an implicit neural representation, our framework is also inherently scale-agnostic. Our method demonstrates superior quantitative performance on different datasets, with exceptional robustness at extreme scales (16x, 32x), a regime where competing methods fail. Our work presents a data-efficient, flexible, and computationally lightweight paradigm for MCSR, enabling high-fidelity, arbitrary-scale reconstruction without the need for paired population-level supervision.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Multi-contrast super-resolution (MCSR) is crucial for enhancing MRI but current deep learning methods are limited.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">MRI Super-Resolution with RCDM/WaveMix and Task-Aware Segmentation</div>
+<div class="meta-line">Authors: Kavitha Viswanathan, Harsh Choudhary, Amit Sethi</div>
+<div class="meta-line">First: 2026-09-30T06:23:43+00:00 · Latest: 2026-09-30T06:23:43+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39083v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39083v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Super-resolution and quality enhancement of 1.5\,T brain MRI are normally validated with image-fidelity metrics, although their purpose is to improve downstream analysis. We study whether enhancement improves tissue segmentation, and for which segmenters. We propose an unpaired, physics-guided training pipeline for a lightweight ($\le$2.5\,M parameter) recurrent convolutional enhancer: a six-module stochastic 1.5\,T degradation operator, a residual adversarial network that adds scanner-specific texture without moving anatomy, and a cycle-consistent objective with an anti-identity penalty that rules out the copy solution. We then train U-Net, Swin-UNet and wavelet token-mixing segmenters \citep{jeevan2023wavemix} from scratch on either raw or enhanced 1.5\,T images of the same subjects, using identical labels and subject-level splits, for three enhancer variants and two datasets. On ABIDE (41 held-out subjects, FreeSurfer labels) enhancement significantly improves the wavelet segmenter (mean Dice $+0.014$, Wilcoxon $p=3.5\times10^{-5}$; CSF $+0.018$, grey matter $+0.013$), significantly degrades the U-Net ($-0.008$, $p=5.1\times10^{-4}$) and leaves Swin-UNet unchanged. On IXI, whose labels come from FSL-FAST, enhancement lowers Dice for all nine pairings, almost entirely through CSF; we trace this to spatially implausible CSF voxels in the labels that penalise smoother predictions. Enhancement of low-field MRI should therefore be validated per downstream model and against reliable labels.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Super-resolution and quality enhancement of 1.5\,T brain MRI are normally validated with image-fidelity metrics, although their purpose is to improve downstream analysis.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Simon-SR: Spatially Adaptive Modulation and Visual Prompt Adaptation for Text-Reinforced Super-Resolution</div>
+<div class="meta-line">Authors: Haotong Cheng, Yuxuan Li, Zijie Cui</div>
+<div class="meta-line">First: 2026-07-10T12:30:00+00:00 · Latest: 2026-09-30T02:23:20+00:00</div>
+<div class="meta-line">Comments: Multi-modal Single Image Super-Resolution</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2607.09351v2">Abs</a> · <a href="https://arxiv.org/pdf/2607.09351v2">PDF</a> · <a href="https://github.com/CHT05017/ICAIS26-SimonSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Severe downsampling makes single image super-resolution (SISR) an ill-posed problem, in which the language-guided multi-modal methods are especially vulnerable to erroneous priors and require costly textual annotations. To address these issues, we propose Simon-SR, a multi-modal SISR framework leveraging learnable prompts for efficient semantic mining and robust text-image fusion. Simon-SR treats textual semantics as learnable latent variables. Specifically, the Contrastive Prompt Learning (CPL) mines instance-level semantics from unannotated images with frozen CLIP encoders, and Prompt-Guided Spatially Adaptive Refinement (PSAR) injects them through attention-gated multi-modal fusion. On CUB and COCO2017 at $\times4$ and $\times16$, Simon-SR gains up to 0.50 dB PSNR and 0.0133 SSIM over current SOTA. The project is available at https://github.com/CHT05017/ICAIS26-SimonSR</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Severe downsampling makes single image super-resolution (SISR) an ill-posed problem, in which the language-guided multi-modal methods are especially vulnerable to erroneous priors and require costly textual annotations.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">RelayVSR: Large-Small Model Collaboration for Efficient Real-World Video Super-Resolution</div>
+<div class="meta-line">Authors: Xijun Wang, Xin Li, Zirui Lang, Suhang Yao, Haoran Li, Zhibo Chen</div>
+<div class="meta-line">First: 2026-09-29T15:42:18+00:00 · Latest: 2026-09-29T15:42:18+00:00</div>
+<div class="meta-line">Comments: The code is available at https://github.com/kopperx/RelayVSR</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.37850v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.37850v1">PDF</a> · <a href="https://github.com/kopperx/RelayVSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Large generative models can recover realistic detail in real-world video super-resolution (VSR), but processing an entire video with them is computationally expensive. In this work, we present RelayVSR, a streaming VSR framework built on the Sparse Generative Relay mechanism. A large generative model generates reference latents for sparse keyframes, while a lightweight VSR network uses these references and low-resolution video to super-resolve every frame. The lightweight VSR network, implemented as a Dual-Memory Video Transformer, reuses keyframe information across frames and updates recent video context, supporting first-keyframe conditioning and dual-endpoint conditioning with bounded lookahead. However, errors in shared keyframes can propagate and accumulate across output frames, making keyframe quality alone an insufficient optimization target. We address this collaboration gap with Video-Aware Reference Optimization (VARO), which uses reinforcement learning to update the large generative model with two reward levels: a system-level reward evaluates videos produced by the fixed lightweight VSR network, while a reference-level reward evaluates decoded keyframe quality. VARO improves final video quality over direct joint training, and its dual-level rewards outperform a system-level reward alone. At 1080p on a single NVIDIA A100 80GB, dual-endpoint RelayVSR with a 15-frame keyframe interval reaches 29.29 FPS, 13.82 GB peak GPU memory, and 0.327 s first-frame model latency, compared with 7.80 FPS, 24.447 GB, and 2.83 s for FlashVSR-Tiny. The code is available at https://github.com/kopperx/RelayVSR.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Large generative models can recover realistic detail in real-world video super-resolution (VSR), but processing an entire video with them is computationally expensive.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">ReCaVSR: One-Step Streaming Diffusion Video Super-Resolution with Recycled Latents and Learned Cache Routing</div>
+<div class="meta-line">Authors: Xijun Wang, Xin Li, Suhang Yao, Zirui Lang, Bingchen Li, Zhibo Chen</div>
+<div class="meta-line">First: 2026-09-29T15:36:56+00:00 · Latest: 2026-09-29T15:36:56+00:00</div>
+<div class="meta-line">Comments: The code is available at https://github.com/kopperx/ReCaVSR</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.37831v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.37831v1">PDF</a> · <a href="https://github.com/kopperx/ReCaVSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Real-time diffusion-based video super-resolution (VSR) is in high demand for online streaming, yet stringent latency requirements often compromise generative fidelity. We propose ReCaVSR, a Wan2.2-based, one-step framework for streaming VSR that builds on two observations: recycled SR latents retain local temporal context, reducing the need for full historical Key-Value (KV) caches; and individual transformer layers benefit from distinct temporal scopes. ReCaVSR combines three complementary designs: (i) layer-wise cache routing with recycled SR latents: each DiT layer learns its KV-cache temporal scope under a cache budget and exports a static inference schedule, while recycled SR latents propagate local context by conditioning each new block on the model&#x27;s own preceding predictions. (ii) Multi-Scope Query (MSQ) Discriminator: a compositional discriminator combining global, spatial-window, and temporal-tube feedback for holistic realism, local texture generation, and temporal stability. (iii) LR-conditioned adaptation of FlashDecoder: a VAE decoder that incorporates LR observations for efficient latent decoding. ReCaVSR enables streaming VSR without iterative sampling or full historical KV-cache materialization. Experiments on synthetic and real-world VSR benchmarks show better perceptual quality, temporal consistency, and streaming efficiency than representative VSR baselines. At $1080{\times}1920$ output resolution on a single NVIDIA A100-80GB, ReCaVSR achieves 21.20 FPS with 15.16 GB peak allocated GPU memory, running 2.72$\times$ faster while using 38.0\% less peak allocated memory than FlashVSR Tiny. The code is available at https://github.com/kopperx/ReCaVSR.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Real-time diffusion-based video super-resolution (VSR) is in high demand for online streaming, yet stringent latency requirements often compromise generative fidelity.</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261011_0607.html">20261011_0607</a>
+<a href="archive/20261010_0659.html">20261010_0659</a>
+<a href="archive/20261009_0736.html">20261009_0736</a>
+<a href="archive/20261008_0726.html">20261008_0726</a>
+<a href="archive/20261007_0651.html">20261007_0651</a>
+<a href="archive/20261006_0831.html">20261006_0831</a>
+<a href="archive/20261005_0607.html">20261005_0607</a>
+<a href="archive/20261004_0555.html">20261004_0555</a>
+<a href="archive/20261002_0658.html">20261002_0658</a>
+<a href="archive/20261001_0645.html">20261001_0645</a>
+<a href="archive/20260930_0647.html">20260930_0647</a>
+<a href="archive/20260929_0737.html">20260929_0737</a>
+<a href="archive/20260928_0545.html">20260928_0545</a>
+<a href="archive/20260927_0544.html">20260927_0544</a>
+<a href="archive/20260926_0554.html">20260926_0554</a>
+<a href="archive/20260925_0555.html">20260925_0555</a>
+<a href="archive/20260924_0555.html">20260924_0555</a>
+<a href="archive/20260923_0544.html">20260923_0544</a>
+<a href="archive/20260922_0623.html">20260922_0623</a>
+<a href="archive/20260921_0508.html">20260921_0508</a>
+<a href="archive/20260920_0512.html">20260920_0512</a>
+<a href="archive/20260919_0522.html">20260919_0522</a>
+<a href="archive/20260918_0551.html">20260918_0551</a>
+<a href="archive/20260916_0551.html">20260916_0551</a>
+<a href="archive/20260915_0618.html">20260915_0618</a>
+<a href="archive/20260913_0507.html">20260913_0507</a>
+<a href="archive/20260912_0528.html">20260912_0528</a>
+<a href="archive/20260911_0520.html">20260911_0520</a>
+<a href="archive/20260910_0524.html">20260910_0524</a>
+<a href="archive/20260909_0531.html">20260909_0531</a>
+<a href="archive/20260908_0552.html">20260908_0552</a>
+<a href="archive/20260907_0458.html">20260907_0458</a>
+<a href="archive/20260906_0451.html">20260906_0451</a>
+<a href="archive/20260905_0510.html">20260905_0510</a>
+<a href="archive/20260904_0531.html">20260904_0531</a>
+<a href="archive/20260903_0528.html">20260903_0528</a>
+<a href="archive/20260902_0531.html">20260902_0531</a>
+<a href="archive/20260901_0705.html">20260901_0705</a>
+<a href="archive/20260831_0545.html">20260831_0545</a>
+<a href="archive/20260830_0525.html">20260830_0525</a>
+<a href="archive/20260829_0957.html">20260829_0957</a>
+<a href="archive/20260828_1024.html">20260828_1024</a>
+<a href="archive/20260827_0530.html">20260827_0530</a>
+<a href="archive/20260826_0324.html">20260826_0324</a>
+<a href="archive/20260825_0322.html">20260825_0322</a>
+<a href="archive/20260824_0316.html">20260824_0316</a>
+<a href="archive/20260823_0317.html">20260823_0317</a>
+<a href="archive/20260822_0320.html">20260822_0320</a>
+<a href="archive/20260821_0324.html">20260821_0324</a>
+<a href="archive/20260820_0321.html">20260820_0321</a>
+<a href="archive/20260819_0328.html">20260819_0328</a>
+<a href="archive/20260818_0321.html">20260818_0321</a>
+<a href="archive/20260817_0315.html">20260817_0315</a>
+<a href="archive/20260816_0315.html">20260816_0315</a>
+<a href="archive/20260815_0343.html">20260815_0343</a>
+<a href="archive/20260814_0352.html">20260814_0352</a>
+<a href="archive/20260813_0357.html">20260813_0357</a>
+<a href="archive/20260812_0356.html">20260812_0356</a>
+<a href="archive/20260811_0348.html">20260811_0348</a>
+<a href="archive/20260810_0325.html">20260810_0325</a>
+<a href="archive/20260809_0322.html">20260809_0322</a>
+<a href="archive/20260808_0345.html">20260808_0345</a>
+<a href="archive/20260807_0836.html">20260807_0836</a>
+<a href="archive/20260806_0421.html">20260806_0421</a>
+<a href="archive/20260805_0419.html">20260805_0419</a>
+<a href="archive/20260804_0421.html">20260804_0421</a>
+<a href="archive/20260803_0406.html">20260803_0406</a>
+<a href="archive/20260802_0406.html">20260802_0406</a>
+<a href="archive/20260801_0415.html">20260801_0415</a>
+<a href="archive/20260731_0411.html">20260731_0411</a>
+<a href="archive/20260730_0408.html">20260730_0408</a>
+<a href="archive/20260729_0411.html">20260729_0411</a>
+<a href="archive/20260728_0415.html">20260728_0415</a>
+<a href="archive/20260727_0410.html">20260727_0410</a>
+<a href="archive/20260726_0408.html">20260726_0408</a>
+<a href="archive/20260725_0412.html">20260725_0412</a>
+<a href="archive/20260724_0408.html">20260724_0408</a>
+<a href="archive/20260723_0408.html">20260723_0408</a>
+<a href="archive/20260722_0415.html">20260722_0415</a>
+<a href="archive/20260721_0416.html">20260721_0416</a>
+<a href="archive/20260720_0404.html">20260720_0404</a>
+<a href="archive/20260719_0400.html">20260719_0400</a>
+<a href="archive/20260718_0400.html">20260718_0400</a>
+<a href="archive/20260717_0357.html">20260717_0357</a>
+<a href="archive/20260716_0403.html">20260716_0403</a>
+<a href="archive/20260715_0405.html">20260715_0405</a>
+<a href="archive/20260714_0407.html">20260714_0407</a>
+<a href="archive/20260713_0403.html">20260713_0403</a>
+<a href="archive/20260712_0400.html">20260712_0400</a>
+<a href="archive/20260711_0416.html">20260711_0416</a>
+<a href="archive/20260710_0442.html">20260710_0442</a>
+<a href="archive/20260709_0417.html">20260709_0417</a>
+<a href="archive/20260708_0446.html">20260708_0446</a>
+<a href="archive/20260707_0448.html">20260707_0448</a>
+<a href="archive/20260706_0407.html">20260706_0407</a>
+<a href="archive/20260705_0405.html">20260705_0405</a>
+<a href="archive/20260704_0412.html">20260704_0412</a>
+<a href="archive/20260703_0414.html">20260703_0414</a>
+<a href="archive/20260702_0446.html">20260702_0446</a>
+<a href="archive/20260701_0453.html">20260701_0453</a>
+<a href="archive/20260630_0447.html">20260630_0447</a>
+<a href="archive/20260629_0407.html">20260629_0407</a>
+<a href="archive/20260627_0428.html">20260627_0428</a>
+<a href="archive/20260626_0453.html">20260626_0453</a>
+<a href="archive/20260625_0429.html">20260625_0429</a>
+<a href="archive/20260624_0458.html">20260624_0458</a>
+<a href="archive/20260623_0529.html">20260623_0529</a>
+<a href="archive/20260622_0420.html">20260622_0420</a>
+<a href="archive/20260621_0412.html">20260621_0412</a>
+<a href="archive/20260620_0423.html">20260620_0423</a>
+<a href="archive/20260619_0518.html">20260619_0518</a>
+<a href="archive/20260618_0500.html">20260618_0500</a>
+<a href="archive/20260617_0539.html">20260617_0539</a>
+<a href="archive/20260616_0539.html">20260616_0539</a>
+<a href="archive/20260615_0415.html">20260615_0415</a>
+<a href="archive/20260614_0411.html">20260614_0411</a>
+<a href="archive/20260613_0500.html">20260613_0500</a>
+<a href="archive/20260612_0514.html">20260612_0514</a>
+<a href="archive/20260611_0523.html">20260611_0523</a>
+<a href="archive/20260610_0453.html">20260610_0453</a>
+<a href="archive/20260609_0510.html">20260609_0510</a>
+<a href="archive/20260608_0407.html">20260608_0407</a>
+<a href="archive/20260607_0405.html">20260607_0405</a>
+<a href="archive/20260606_0447.html">20260606_0447</a>
+<a href="archive/20260604_0544.html">20260604_0544</a>
+<a href="archive/20260603_0543.html">20260603_0543</a>
+<a href="archive/20260602_0557.html">20260602_0557</a>
+<a href="archive/20260601_0405.html">20260601_0405</a>
+<a href="archive/20260531_0404.html">20260531_0404</a>
+<a href="archive/20260530_0508.html">20260530_0508</a>
+<a href="archive/20260528_0459.html">20260528_0459</a>
+<a href="archive/20260527_0451.html">20260527_0451</a>
+<a href="archive/20260526_0421.html">20260526_0421</a>
+<a href="archive/20260524_0402.html">20260524_0402</a>
+<a href="archive/20260523_0429.html">20260523_0429</a>
+<a href="archive/20260522_0447.html">20260522_0447</a>
+<a href="archive/20260521_0458.html">20260521_0458</a>
+<a href="archive/20260520_0426.html">20260520_0426</a>
+<a href="archive/20260519_0422.html">20260519_0422</a>
+<a href="archive/20260518_0402.html">20260518_0402</a>
+<a href="archive/20260517_0359.html">20260517_0359</a>
+<a href="archive/20260516_0411.html">20260516_0411</a>
+<a href="archive/20260515_0424.html">20260515_0424</a>
+<a href="archive/20260514_0428.html">20260514_0428</a>
+<a href="archive/20260513_0427.html">20260513_0427</a>
+<a href="archive/20260512_0428.html">20260512_0428</a>
+<a href="archive/20260511_0359.html">20260511_0359</a>
+<a href="archive/20260510_0352.html">20260510_0352</a>
+<a href="archive/20260509_0406.html">20260509_0406</a>
+<a href="archive/20260508_0412.html">20260508_0412</a>
+<a href="archive/20260507_0418.html">20260507_0418</a>
+<a href="archive/20260506_0408.html">20260506_0408</a>
+<a href="archive/20260505_0411.html">20260505_0411</a>
+<a href="archive/20260504_0349.html">20260504_0349</a>
+<a href="archive/20260503_0349.html">20260503_0349</a>
+<a href="archive/20260502_0401.html">20260502_0401</a>
+<a href="archive/20260501_0406.html">20260501_0406</a>
+<a href="archive/20260430_1624.html">20260430_1624</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
