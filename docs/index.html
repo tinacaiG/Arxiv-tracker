@@ -74,12 +74,36 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-12 06:36</span>
+        <span class="badge">2026-10-13 09:06</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">MOSAIC: Multi-Scale Object-Centric Slot Adaptation with Image-Guided Prototype Conditioning for Remote Sensing Image Super-Resolution</div>
+<div class="meta-line">Authors: Liuqian Wang, Hanyu Xie, Rongzhen Zhao, Qi Ming, Chunjie Ma, Wentao Chao, Yufei Gao, Chengming Liu, Lei Shi</div>
+<div class="meta-line">First: 2026-10-09T13:03:57+00:00 · Latest: 2026-10-09T13:03:57+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13547v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13547v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Pretrained diffusion Transformers provide powerful generative priors for image restoration, yet adapting them to structure-sensitive tasks remains challenging. Existing methods mainly rely on dense low-resolution features as conditions, which often entangle salient objects with dominant backgrounds and provide limited abstraction for recurring structures across scales and samples. We propose MOSAIC, an object-centric representation learning framework that learns compact structural conditions for generative model adaptation. MOSAIC organizes degraded observations into structural slots that capture complementary object-level and layout-level evidence, integrates them across resolutions, and retrieves recurring priors from a shared prototype memory to complement incomplete image-specific information. The resulting representations are injected into selected layers of a frozen diffusion Transformer through lightweight residual modulation, preserving its pretrained generative prior. We instantiate MOSAIC for remote sensing image super-resolution, where small objects, repetitive structures, and large-scale variation provide a challenging testbed. Experiments on UCMerced, AID, and RSSCN7 show consistent PSNR improvements across $\times 2$ and $\times 4$ settings and favorable LPIPS results at $\times 4$. Qualitative results further demonstrate improved preservation of small objects, structural boundaries, and repetitive spatial patterns.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Pretrained diffusion Transformers provide powerful generative priors for image restoration, yet adapting them to structure-sensitive tasks remains challenging.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">High-Throughput Generative Video Super-Resolution on a Single Consumer GPU</div>
+<div class="meta-line">Authors: Georgios Panaretou, Sotirios Chatzis</div>
+<div class="meta-line">First: 2026-10-09T08:06:14+00:00 · Latest: 2026-10-09T08:06:14+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13179v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13179v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Generative video super-resolution (VSR) can recover visually compelling high-frequency detail by leveraging diffusion priors, but iterative sampling and heavy spatio-temporal coupling make practical deployments difficult. We study a different operating point: practical HD generative VSR on a single high-end consumer GPU without end-to-end retraining. To this end, we present a zero-shot framework built entirely from pretrained components.
+  The proposed system decouples spatial enhancement from temporal stabilization. A time-distilled one-step diffusion backbone handles spatial upscaling, while temporal coherence is promoted by a lightweight pretrained flow-based interpolator that synthesizes intermediate frames between super-resolved keyframes. To further improve scalability, we introduce a resolution-aware hybrid attention scheme that, in a zero-shot manner, replaces selected high-resolution global-attention layers with neighborhood attention while preserving global attention in semantically critical low-resolution layers, while also improving temporal consistency.
+  Experiments show that the proposed framework reaches up to ~32 FPS at 720p resolution under interleaved inference on a single NVIDIA RTX 4090. At 4K, the proposed attention substitution can yield up to a 44% speedup over the original attention implementation. Across standard VSR benchmarks, the method consistently shifts the speed-quality trade-off decisively toward runtime efficiency, trading reconstruction fidelity for strong no-reference perceptual quality, while remaining reasonably competitive against generative approaches in temporal consistency. It also exposes clear limitations in handling more challenging motion, which a simple motion gate partially mitigates. Code will be released upon acceptance.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Generative video super-resolution (VSR) can recover visually compelling high-frequency detail by leveraging diffusion priors, but iterative sampling and heavy spatio-temporal coupling make practical deployments difficult.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration</div>
 <div class="meta-line">Authors: Jialei He, Enhe Liu, Sifan Song, Pengfei Jin, Jionglong Su, Hongbin Wang, Zhixiang Lu, Yanhao Huang, Anteng Cai, Zhengyong Jiang, Jiaman Ding, S. Kevin Zhou, Jinfeng Wang</div>
 <div class="meta-line">First: 2026-10-08T17:13:32+00:00 · Latest: 2026-10-08T17:13:32+00:00</div>
@@ -402,33 +426,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Severe downsampling makes single image super-resolution (SISR) an ill-posed problem, in which the language-guided multi-modal methods are especially vulnerable to erroneous priors and require costly textual annotations.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">RelayVSR: Large-Small Model Collaboration for Efficient Real-World Video Super-Resolution</div>
-<div class="meta-line">Authors: Xijun Wang, Xin Li, Zirui Lang, Suhang Yao, Haoran Li, Zhibo Chen</div>
-<div class="meta-line">First: 2026-09-29T15:42:18+00:00 · Latest: 2026-09-29T15:42:18+00:00</div>
-<div class="meta-line">Comments: The code is available at https://github.com/kopperx/RelayVSR</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.37850v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.37850v1">PDF</a> · <a href="https://github.com/kopperx/RelayVSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Large generative models can recover realistic detail in real-world video super-resolution (VSR), but processing an entire video with them is computationally expensive. In this work, we present RelayVSR, a streaming VSR framework built on the Sparse Generative Relay mechanism. A large generative model generates reference latents for sparse keyframes, while a lightweight VSR network uses these references and low-resolution video to super-resolve every frame. The lightweight VSR network, implemented as a Dual-Memory Video Transformer, reuses keyframe information across frames and updates recent video context, supporting first-keyframe conditioning and dual-endpoint conditioning with bounded lookahead. However, errors in shared keyframes can propagate and accumulate across output frames, making keyframe quality alone an insufficient optimization target. We address this collaboration gap with Video-Aware Reference Optimization (VARO), which uses reinforcement learning to update the large generative model with two reward levels: a system-level reward evaluates videos produced by the fixed lightweight VSR network, while a reference-level reward evaluates decoded keyframe quality. VARO improves final video quality over direct joint training, and its dual-level rewards outperform a system-level reward alone. At 1080p on a single NVIDIA A100 80GB, dual-endpoint RelayVSR with a 15-frame keyframe interval reaches 29.29 FPS, 13.82 GB peak GPU memory, and 0.327 s first-frame model latency, compared with 7.80 FPS, 24.447 GB, and 2.83 s for FlashVSR-Tiny. The code is available at https://github.com/kopperx/RelayVSR.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Large generative models can recover realistic detail in real-world video super-resolution (VSR), but processing an entire video with them is computationally expensive.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">ReCaVSR: One-Step Streaming Diffusion Video Super-Resolution with Recycled Latents and Learned Cache Routing</div>
-<div class="meta-line">Authors: Xijun Wang, Xin Li, Suhang Yao, Zirui Lang, Bingchen Li, Zhibo Chen</div>
-<div class="meta-line">First: 2026-09-29T15:36:56+00:00 · Latest: 2026-09-29T15:36:56+00:00</div>
-<div class="meta-line">Comments: The code is available at https://github.com/kopperx/ReCaVSR</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.37831v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.37831v1">PDF</a> · <a href="https://github.com/kopperx/ReCaVSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Real-time diffusion-based video super-resolution (VSR) is in high demand for online streaming, yet stringent latency requirements often compromise generative fidelity. We propose ReCaVSR, a Wan2.2-based, one-step framework for streaming VSR that builds on two observations: recycled SR latents retain local temporal context, reducing the need for full historical Key-Value (KV) caches; and individual transformer layers benefit from distinct temporal scopes. ReCaVSR combines three complementary designs: (i) layer-wise cache routing with recycled SR latents: each DiT layer learns its KV-cache temporal scope under a cache budget and exports a static inference schedule, while recycled SR latents propagate local context by conditioning each new block on the model&#x27;s own preceding predictions. (ii) Multi-Scope Query (MSQ) Discriminator: a compositional discriminator combining global, spatial-window, and temporal-tube feedback for holistic realism, local texture generation, and temporal stability. (iii) LR-conditioned adaptation of FlashDecoder: a VAE decoder that incorporates LR observations for efficient latent decoding. ReCaVSR enables streaming VSR without iterative sampling or full historical KV-cache materialization. Experiments on synthetic and real-world VSR benchmarks show better perceptual quality, temporal consistency, and streaming efficiency than representative VSR baselines. At $1080{\times}1920$ output resolution on a single NVIDIA A100-80GB, ReCaVSR achieves 21.20 FPS with 15.16 GB peak allocated GPU memory, running 2.72$\times$ faster while using 38.0\% less peak allocated memory than FlashVSR Tiny. The code is available at https://github.com/kopperx/ReCaVSR.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Real-time diffusion-based video super-resolution (VSR) is in high demand for online streaming, yet stringent latency requirements often compromise generative fidelity.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261011_0607.html">20261011_0607</a>
+      <div class="history-list"><a href="archive/20261012_0636.html">20261012_0636</a>
+<a href="archive/20261011_0607.html">20261011_0607</a>
 <a href="archive/20261010_0659.html">20261010_0659</a>
 <a href="archive/20261009_0736.html">20261009_0736</a>
 <a href="archive/20261008_0726.html">20261008_0726</a>
