@@ -74,12 +74,133 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-14 07:10</span>
+        <span class="badge">2026-10-15 05:59</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">BridgeTwist: Twisting Schrödinger Bridges for Training-Free Conditional Sampling</div>
+<div class="meta-line">Authors: Mengyu Li, Qianqian Qu, Jun S. Liu</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-13T16:20:49+00:00 · Latest: 2026-10-13T16:20:49+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18658v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18658v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Generative models are often required to serve many downstream conditional tasks. In the training-free setting, a pretrained unconditional model is reused as a prior and combined with a task-specific likelihood to sample from the corresponding posterior. While such training-free samplers have been developed for diffusion and flow models, their counterpart for Schrödinger bridge (SB) models remains unexplored, despite the growing appeal of SBs as flexible stochastic transport models between general source and target distributions. We propose BridgeTwist, a training-free conditional sampler for pretrained SB generative models, formulated as a tempered twisted sequential Monte Carlo scheme. Its twist is a closed-form plug-in surrogate, obtained by combining the velocity and score fields exposed by SB pretraining into an endpoint predictor and evaluating the likelihood there. Since this surrogate is less reliable near the source, we temper the twist with a time-varying exponent, downweighting its influence at early steps. We further introduce a bridge-shaped inference-time diffusion schedule that concentrates the proposal noise in the interior of the path. Telescoping importance weights then cancel all intermediate twist factors, yielding an asymptotically exact sampler for the posterior. Empirically, BridgeTwist outperforms training-free baselines on class-conditional and text-prompted image generation, and is competitive with specialized inverse problem solvers on inpainting, deblurring, and super-resolution.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Generative models are often required to serve many downstream conditional tasks.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">InstantViR: Real-Time Video Inverse Problem Solver with Distilled Diffusion Prior</div>
+<div class="meta-line">Authors: Weimin Bai, Suzhe Xu, Yiwei Ren, Jinhua Hao, Ming Sun, Wenzheng Chen, He Sun</div>
+<div class="meta-line">First: 2025-11-18T07:40:38+00:00 · Latest: 2026-10-13T09:40:29+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2511.14208v3">Abs</a> · <a href="https://arxiv.org/pdf/2511.14208v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Video inverse problems are fundamental to streaming, telepresence, and AR/VR, where high perceptual quality must coexist with tight latency constraints. Diffusion-based priors currently deliver state-of-the-art reconstructions, but existing approaches either adapt image diffusion models with ad hoc temporal regularizers - leading to temporal artifacts - or rely on native video diffusion models whose iterative posterior sampling is far too slow for real-time use. We introduce InstantViR, an amortized inference framework for ultra-fast video reconstruction powered by a pre-trained video diffusion prior. We distill a powerful bidirectional video diffusion model (teacher) into a causal autoregressive student that maps a degraded video directly to its restored version in a single forward pass, inheriting the teacher&#x27;s strong temporal modeling while completely removing iterative test-time optimization. The distillation is prior-driven: it only requires the teacher diffusion model and known degradation operators, and does not rely on externally paired clean/noisy video data. To further boost throughput, we replace the video-diffusion backbone VAE with a high-efficiency LeanVAE via an innovative teacher-space regularized distillation scheme, enabling low-latency latent-space processing. Across streaming random inpainting, Gaussian deblurring and super-resolution, InstantViR matches or surpasses the reconstruction quality of diffusion-based baselines while running at over 35 FPS on NVIDIA A100 GPUs, achieving up to 100 times speedups over iterative video diffusion solvers. These results show that diffusion-based video reconstruction is compatible with real-time, interactive, editable, streaming scenarios, turning high-quality video restoration into a practical component of modern vision systems.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Video inverse problems are fundamental to streaming, telepresence, and AR/VR, where high perceptual quality must coexist with tight latency constraints.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">High-fidelity Three-Dimensional Flow Field Reconstruction Driven by Turbulent Fluid Dynamics</div>
+<div class="meta-line">Authors: Hanlin Kong, Jianan Wei, Yuntian Chen, Yujia Wang, Wenguan Wang</div>
+<div class="meta-line">First: 2026-10-13T09:36:28+00:00 · Latest: 2026-10-13T09:36:28+00:00</div>
+<div class="meta-line">Comments: 66 pages, 9 main-text figures and 1 main-text table; includes Supplementary Information with 14 figures and 22 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18045v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18045v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">High-fidelity three-dimensional turbulent flow fields are essential for scientific and engineering analyses, yet obtaining them through direct numerical simulation or high-resolution measurements remains expensive. Super-resolution reconstruction from coarse-grained data therefore offers a promising alternative, but remains fundamentally challenging because fine-scale structures are intrinsically three-dimensional and dynamically coupled across scales. Existing data-driven approaches still struggle to recover multiscale volumetric structures and their coherent temporal evolution. To address these limitations, we propose a turbulence-aware framework for time-resolved three-dimensional flow reconstruction. The framework couples a multiscale neural operator, designed to recover volumetric structures, with a state space model to promote temporal consistency in the reconstructed dynamics. In addition, Navier-Stokes residuals are incorporated as soft constraints to regularize the reconstruction toward physically plausible dynamics. A mixture-of-experts mechanism is also introduced to support unsupervised adaptation to unknown coarse-graining. Across evaluations on canonical turbulent systems and atmospheric reanalysis data, the proposed framework reduces reconstruction errors relative to learning-based and classical baselines, while better preserving multiscale spatial structure and coherent temporal evolution. These results validate the effectiveness of the proposed framework in reconstructing high-fidelity three-dimensional flow fields from coarse-grained data.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">High-fidelity three-dimensional turbulent flow fields are essential for scientific and engineering analyses, yet obtaining them through direct numerical simulation or high-resolution measurements remains expensive.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Ultra Flash: Scaling Real-Time Streaming Video Generation to High Resolutions</div>
+<div class="meta-line">Authors: Xin Lu, Jie Huang, Zihao Fan, Xiaoxiao Ma, Jun-hao Zhuang, Yuming Li, Zeyue Xue, Siming Fu, Haoran Li, Mingchen Zhong, Guohui Zhang, Shichen Ma, Yijun Liu, Jiaqi Shi, Yanwen Ma, Yaofeng Su, Haoyu Wang, Yaowei Li, Songchun Zhang, Weiyang Jin, Yuxuan Bian, Shiyi Zhang, Haojun Xu, Shuai Lu, Xin Han, Wei Tang, Haoyang Huang, Nan Duan</div>
+<div class="meta-line">Venue: Advances in Neural Information Processing Systems 2026</div>
+<div class="meta-line">First: 2026-06-08T07:45:03+00:00 · Latest: 2026-10-13T03:00:15+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.09150v3">Abs</a> · <a href="https://arxiv.org/pdf/2606.09150v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://xin1u.github.io/UltraFlash/">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">While recent autoregressive video diffusion models achieve remarkable streaming quality, they remain confined to low resolutions (e.g., 480P), leaving efficient, scalable, real-time high-resolution video generation a fundamental open challenge. To bridge this gap, we present Ultra Flash, a cascaded streaming framework capable of real-time high-resolution video generation. Ultra Flash achieves ~30 FPS at 1K resolution and ~18 FPS at 2K resolution on a single GPU through three key contributions: (1) an architecture-preserving T2V-to-TV2V super-resolution training paradigm coupled with an AIGC-oriented data degradation pipeline that effectively preserves the generative capability of the base model, enabling enhanced high-resolution detail when cascaded after mainstream low-resolution generative models; (2) a causal streaming latent upsampler paired with a high-resolution decoder, which enhances spatiotemporal coherence while enabling efficient latent spatial scaling and precise high-resolution decoding with negligible computational overhead; and (3) a cascade high-resolution streaming video generation optimization scheme that first performs hybrid-reward-enhanced sparse causalization and single-step distillation of the super-resolution model, then introduces cascaded streaming self-forcing preference optimization with dynamic cache management, jointly enhancing overall coherence, improving quality, and enabling real-time high-resolution streaming video generation. Extensive experiments demonstrate that Ultra Flash reliably produces ultra-high-resolution streaming video while maintaining state-of-the-art visual quality and superior efficiency. Project Page: https://xin1u.github.io/UltraFlash/</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">While recent autoregressive video diffusion models achieve remarkable streaming quality, they remain confined to low resolutions (e.g., 480P), leaving efficient, scalable, real-time high-resolution video generation a fundamental open challenge.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">FlashVSR+: Efficient Video Super-Resolution via Hybrid Attention and Reward-Yield Distribution Matching</div>
+<div class="meta-line">Authors: Ruchang Yao, Shi Guo, Junhao Zhuang, Mingde Yao, Xin Cai, Jiahao Zhan, Bin Fu, Xinyuan Chen, Yu Qiao, Tianfan Xue</div>
+<div class="meta-line">First: 2026-10-13T01:22:50+00:00 · Latest: 2026-10-13T01:22:50+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17552v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17552v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation. However, high-resolution inference remains costly, and distilled models are difficult to align with human preferences. These challenges call for improvements in both model architecture and training strategy. We present \textbf{FlashVSR+} to address both limitations. On the architecture side, we introduce hybrid attention based on the strong locality observed in pretrained VSR models, while retaining sparse global interaction for long-range consistency. It achieves up to $2\times$ DiT speedup and 45\% lower peak memory, enabling spatially untiled 4K VSR on a single 24GB RTX 4090. On the training side, we propose Reward-Yield Distribution Matching Distillation (Ry-DMD) for preference-aligned one-step generation. Ry-DMD uses reward-weighted teacher rollouts to incorporate black-box rewards into distribution matching, without backpropagating through the reward model. We further show that Ry-DMD generalizes beyond VSR to T2I generation. Together, FlashVSR+ delivers stronger restoration quality and substantially improves high-resolution efficiency, with consistent gains in user preference. We release our code, models, and training data at \href{https://www.flashvsr.tech}{\textcolor{FlashBlue}{\textbf{www.flashvsr.tech}}}.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Hardware-Friendly Token-Group Activation Quantization for Low-Bit Mamba Super-Resolution</div>
+<div class="meta-line">Authors: Jinwoo Chung, Jangho Kim</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-12T06:43:58+00:00 · Latest: 2026-10-12T06:43:58+00:00</div>
+<div class="meta-line">Comments: Accepted to NeurIPS 2026. 32 pages, 6 figures. Code: https://github.com/imaboybut/TGQ-MambaSR</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.16261v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.16261v1">PDF</a> · <a href="https://github.com/imaboybut/TGQ-MambaSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Mamba-based super-resolution models are efficient alternatives to Transformer-based restoration backbones, but their low-bit post-training quantization remains challenging because selective scan, Mamba&#x27;s input-dependent state-space operator, induces different activation ranges across spatial tokens. Thus, a single layer-wise clipping range poorly matches all tokens. We propose Token-Group Quantization, a hardware-friendly activation PTQ framework that statically approximates a hardware-unfriendly post-scan grouping oracle, where tokens with similar preferred clipping ranges are assigned to the same group. To avoid runtime post-scan grouping in static low-bit inference, a lightweight predictor infers the groups from pre-scan features available before the quantized scan path. During calibration, we form pseudo-labels by clustering post-scan activation descriptors that capture similar rounding--clipping behavior. At inference, the frozen predictor maps pre-scan features to groups and selects entries from offline-calibrated group-wise clipping-bound tables, without runtime statistics collection, dynamic clipping updates, or post-scan group assignment. To address low-bit restoration degradation, we further introduce a Frequency-Preserving Refinement (FPR) objective for clipping-bound calibration. FPR aligns Fourier amplitude and phase between full-precision teacher and quantized student outputs to preserve high-frequency structures. Across PTQ protocols, bit-widths, backbones, and tasks, our method consistently outperforms prior Mamba and SR PTQ baselines, transfers to Transformer SR and Vision Mamba classification, composes with rotation-based quantization, and achieves 2.23x speedup on Jetson Orin Nano over FP16. Code is available here.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Mamba-based super-resolution models are efficient alternatives to Transformer-based restoration backbones, but their low-bit post-training quantization remains challenging because selective scan, Mamba&#x27;s input-dependent state-space operator, induces different activation ranges across spatial tokens.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">GENERIC-FNO: Embedding Energy Conservation and Entropy Production into Fourier Neural Operators</div>
+<div class="meta-line">Authors: Jason Sulskis, Sathya Ravi</div>
+<div class="meta-line">First: 2026-06-06T21:24:41+00:00 · Latest: 2026-10-12T00:26:37+00:00</div>
+<div class="meta-line">Comments: Under review</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.08343v8">Abs</a> · <a href="https://arxiv.org/pdf/2606.08343v8">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions. Prior structure-preserving neural operators enforce at most one conservation law or a Hamiltonian form, and thermodynamically consistent learning has been confined to finite-dimensional, graph, or particle systems. GENERIC-FNO learns the energy and entropy functionals as neural operators and builds the reversible and irreversible operators as diagonal Fourier multipliers flanked by rank-one projections that enforce both degeneracy conditions exactly, by construction, with no penalty, update projection, or residual; the Jacobi identity is not enforced. The identities hold to machine precision (~10^-13) for any initialization, dimension, or resolution, so the continuous-time dynamics conserve the learned energy and produce the learned entropy exactly, with explicit time stepping adding only an O(dt^2) drift. These are guarantees about the learned functionals within GENERIC&#x27;s scope of closed conservative-dissipative dynamics, not a certificate of physical accuracy, and the (E,S,L,M) decomposition is not unique; we make this gauge freedom explicit and propose a gauge-invariant dissipation diagnostic independent of the learned functionals. Across three backbones (1D/2D FNO, DeepONet) and four canonical scalar PDEs, the guarantees transfer zero-shot over a 4x super-resolution range and hold in 3D; the diagnostic identifies the reversible and the most dissipative system in every backbone; and over 200-step rollouts, where every unconstrained model we test diverges or collapses, GENERIC-FNO stays bounded, at half the parameters but 4-10x the compute, while losing accuracy on pure transport and on the smallest 1D backbone.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Toward a Multimodal Foundation Model for Plasma State Reconstruction</div>
+<div class="meta-line">Authors: Bin Xia, Chuanfei Dong, Boting Li, Yilan Qin, Zikang Xie, Sung Hyun Son, Adam J. Stanier, Jongsoo Yoo, Hantao Ji, Ahmed Diallo, Han Ding, John Wise</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-10T17:18:48+00:00 · Latest: 2026-10-10T17:18:48+00:00</div>
+<div class="meta-line">Comments: Accepted at the NeurIPS 2026 Workshop on Physical World AI (PhysWorldAI). 15 pages, 5 figures, 5 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15076v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15076v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics. We present a proof of concept toward a multimodal foundation model for plasma state reconstruction during magnetic reconnection, motivated by the Facility for Laboratory Reconnection Experiments (FLARE). Using 250 synthetic VPIC simulations at fixed reference electron beta $β_{e0}=0.2$, with 225 training runs and 25 disjoint validation runs, we train a 5.5M-parameter residual 3D U-Net to reconstruct three magnetic-field components and electron density from incomplete observations. The model combines spatial-only pooling, which preserves all 24 temporal frames, with global spatiotemporal self-attention and rotary positional encoding. Independently masking magnetic and density modalities across random, grid, block, and temporal patterns enables sparse sensing, cross-modal completion, density super-resolution, and temporal completion with a single set of weights and no task-specific retraining. With density fully hidden, just 0.1% magnetic spatial visibility reduces median density NRMSE from approximately 0.9 to 0.1. Conversely, observed density improves current-density reconstruction when magnetic data are absent or extremely sparse. With no magnetic observations, roughly 1% density visibility approaches the density reconstruction accuracy achieved with fully observed magnetic fields, although current structure remains more dependent on direct magnetic measurements. Full magnetic conditioning also stabilizes completion of missing future density frames. These results demonstrate bidirectional cross-modal predictive coupling within this simulation regime. Generalization across plasma regimes or to experimental measurements remains untested.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">DuSRFlow: Dual-Lens Super-Resolution via Parallax-Aware Flow Estimation and Complementary Reference Warping</div>
+<div class="meta-line">Authors: Fangpu Zhang, Huanjing Yue, Zifan Cui, Shaoxiong Tu, Qirui Yang, Jingyu Yang</div>
+<div class="meta-line">First: 2026-10-10T06:28:51+00:00 · Latest: 2026-10-10T06:28:51+00:00</div>
+<div class="meta-line">Comments: Accepted by IEEE Transactions on Multimedia (TMM)</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14630v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14630v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Dual-lens super-resolution (DuSR) aims to enhance a wide-angle low-resolution (LR) image by exploiting a telephoto reference (Ref) image. A central challenge in DuSR is reliable reference utilization under large parallax, occlusion, and cross-camera imaging discrepancies. Existing methods often employ off-the-shelf monocular optical flow models to provide geometric priors. However, their assumptions of photometric consistency and smooth motion are violated in dual-lens scenarios, leading to unreliable alignment and degraded reference-based reconstruction. To address these issues, we propose DuSRFlow, a dual-lens super-resolution framework that improves reference utilization from both correspondence learning and reference aggregation. First, we introduce DuFlowNet, a dedicated dual-lens flow estimator for robust cross-view alignment. To train DuFlowNet without ground-truth flow annotations, we develop a real--synthetic data fusion strategy that composites synthetic foreground objects onto real dual-lens image pairs, generating controllable large-parallax samples while preserving realistic cross-camera imaging characteristics. Second, we observe that reference reliability is highly spatially uneven in DuSR, where unreliable local reference responses may suppress the utilization of reliable cues. We therefore propose a Complementary Reference Warping strategy that coordinates patch-based warping and kernel-free-guided deformable warping according to local reference reliability, producing a more reliable reference representation before LR--Ref fusion. In addition, we construct DuSR-RealV2, a challenging real-world benchmark with complex depth variations, large parallax, and occlusion. Extensive experiments on multiple DuSR benchmarks demonstrate that DuSRFlow achieves state-of-the-art performance in reconstruction quality, perceptual quality, and cross-dataset generalization.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Dual-lens super-resolution (DuSR) aims to enhance a wide-angle low-resolution (LR) image by exploiting a telephoto reference (Ref) image.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TGSR: Text-Grounded Diffusion for Faithful Image Super-Resolution</div>
+<div class="meta-line">Authors: Zhiming Hu, Ran Zhang, Angela Ye, Raghav Goyal, Faraz Ali, Tristan Ty Aumentado-Armstrong, Samrudhdhi B. Rangrej, Konstantinos G. Derpanis, Iqbal Mohomed, Alex Levinshtein</div>
+<div class="meta-line">First: 2026-10-09T20:00:41+00:00 · Latest: 2026-10-09T20:00:41+00:00</div>
+<div class="meta-line">Comments: 22 pages, 9 figures, 12 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14281v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14281v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Diffusion models have achieved remarkable success in image super-resolution (SR) by leveraging strong generative priors to enhance perceptual quality. However, for textual content, these priors often produce text hallucinations: non-existent or distorted text, which alter scene semantics and compromise model reliability. While recent methods focus on enhancing text generation, they do so indiscriminately, leaving hallucinations fundamentally unresolved. We argue the core problem is a lack of selective control. Therefore, we reformulate text SR as a selective generation problem: text is resolved only when reliable generation is expected, while other scene content is fully super-resolved. We introduce TGSR (Text-Grounded Super-Resolution), a test-time framework that progressively identifies and suppresses likely hallucinated text regions during generation. To enable this, we train dedicated detectors on a large-scale dataset curated from diverse diffusion-based SR outputs. TGSR consistently improves text fidelity across multiple backbones, increasing recognition precision by up to 17.68 points without degrading perceptual quality, underscoring the value of selective control in generative SR.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Diffusion models have achieved remarkable success in image super-resolution (SR) by leveraging strong generative priors to enhance perceptual quality.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">MOSAIC: Multi-Scale Object-Centric Slot Adaptation with Image-Guided Prototype Conditioning for Remote Sensing Image Super-Resolution</div>
 <div class="meta-line">Authors: Liuqian Wang, Hanyu Xie, Rongzhen Zhao, Qi Ming, Chunjie Ma, Wentao Chao, Yufei Gao, Chengming Liu, Lei Shi</div>
 <div class="meta-line">First: 2026-10-09T13:03:57+00:00 · Latest: 2026-10-09T13:03:57+00:00</div>
@@ -302,18 +423,6 @@ summary{cursor:pointer;color:var(--acc)}
 </details>
 </div>
 <div class="card">
-<div class="title">GENERIC-FNO: Embedding Energy Conservation and Entropy Production into Fourier Neural Operators</div>
-<div class="meta-line">Authors: Jason Sulskis, Sathya Ravi</div>
-<div class="meta-line">First: 2026-06-06T21:24:41+00:00 · Latest: 2026-10-01T21:07:25+00:00</div>
-<div class="meta-line">Comments: Under review at TMLR</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.08343v7">Abs</a> · <a href="https://arxiv.org/pdf/2606.08343v7">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions. Prior structure-preserving neural operators enforce at most one conservation law or a Hamiltonian form, and thermodynamically consistent learning has been confined to finite-dimensional, graph, or particle systems. GENERIC-FNO learns the energy and entropy functionals as neural operators and builds the reversible and irreversible operators as diagonal Fourier multipliers flanked by rank-one projections that enforce both degeneracy conditions exactly, by construction, with no penalty, update projection, or residual; the Jacobi identity is not enforced. The identities hold to machine precision (~10^-13) for any initialization, dimension, or resolution, so the continuous-time dynamics conserve the learned energy and produce the learned entropy exactly, with explicit time stepping adding only an O(dt^2) drift. These are guarantees about the learned functionals within GENERIC&#x27;s scope of closed conservative-dissipative dynamics, not a certificate of physical accuracy, and the (E,S,L,M) decomposition is not unique; we make this gauge freedom explicit and propose a gauge-invariant dissipation diagnostic independent of the learned functionals. Across three backbones (1D/2D FNO, DeepONet) and four canonical scalar PDEs, the guarantees transfer zero-shot over a 4x super-resolution range and hold in 3D; the diagnostic identifies the reversible and the most dissipative system in every backbone; and over 200-step rollouts, where every unconstrained model we test diverges or collapses, GENERIC-FNO stays bounded, at half the parameters but 4-10x the compute, while losing accuracy on pure transport and on the smallest 1D backbone.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions.</div>
-</details>
-</div>
-<div class="card">
 <div class="title">Convergent Plug-and-Play Image Restoration with Annealed Noise Levels</div>
 <div class="meta-line">Authors: Samuel Hurault</div>
 <div class="meta-line">First: 2026-09-26T09:12:06+00:00 · Latest: 2026-10-01T17:00:14+00:00</div>
@@ -323,112 +432,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Plug-and-Play (PnP) methods solve imaging inverse problems by incorporating deep denoisers into iterative optimization algorithms.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Trajectory Stitching for Solving Inverse Problems with Flow-Based Models</div>
-<div class="meta-line">Authors: Alexander Denker, Zeljko Kereta, Carola-Bibiane Schönlieb, Moshe Eliasof</div>
-<div class="meta-line">First: 2026-02-09T11:36:41+00:00 · Latest: 2026-10-01T09:13:52+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2602.08538v2">Abs</a> · <a href="https://arxiv.org/pdf/2602.08538v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Flow-based generative models have emerged as powerful priors for solving inverse problems. One option is to directly optimize the initial latent code (noise), such that the flow output solves the inverse problem. However, this requires backpropagating through the entire generative trajectory, incurring high memory costs and numerical instability. We propose MS-Flow, which represents the trajectory as a sequence of intermediate latent states rather than a single initial code. By enforcing the flow dynamics locally and coupling segments through trajectory-matching penalties, MS-Flow alternates between updating intermediate latent states and enforcing consistency with observed data. This reduces memory consumption while improving reconstruction quality. We demonstrate the effectiveness of MS-Flow over existing methods on image recovery and inverse problems, including inpainting, super-resolution, and computed tomography.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Flow-based generative models have emerged as powerful priors for solving inverse problems.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Principled Design of Diffusion-based Optimizers for Inverse Problems</div>
-<div class="meta-line">Authors: Julio Oscanoa, Irmak Sivgin, Cagan Alkan, Daniel Ennis, John Pauly, Mert Pilanci, Shreyas Vasanawala</div>
-<div class="meta-line">First: 2026-05-12T04:25:49+00:00 · Latest: 2026-10-01T07:28:56+00:00</div>
-<div class="meta-line">Comments: 34 pages, 7 figures, 5 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.11506v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.11506v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Score-based diffusion models achieve state-of-the-art performance for inverse problems, but their practical deployment is hindered by long inference times and cumbersome hyperparameter tuning. While pretrained diffusion models can be reused across tasks without retraining, inference-time hyperparameters such as the noise schedule and posterior sampling weights typically require ad-hoc adjustment for each problem setup. We propose principled reparameterizations that induce invariances, allowing the same hyperparameters to be reused across multiple problems without re-tuning. In addition, building on the RED-diff framework, which reformulates posterior sampling as an optimization problem, we further develop the OptDiff pipeline. OptDiff provides a simplified tuning framework that facilitates the integration of convex optimization tools to accelerate inference. Experiments on image reconstruction, deblurring, and super-resolution show substantial speedups and improved image quality.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Score-based diffusion models achieve state-of-the-art performance for inverse problems, but their practical deployment is hindered by long inference times and cumbersome hyperparameter tuning.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">SR-Ground: Image Quality Grounding for Super-Resolved Content</div>
-<div class="meta-line">Authors: Artem Borisov, Evgeney Bogatyrev, Khaled Abud, Dmitriy Vatolin</div>
-<div class="meta-line">First: 2026-05-20T14:33:13+00:00 · Latest: 2026-09-30T22:45:59+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.21244v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.21244v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Super-Resolution (SR) has advanced rapidly in recent years, with diffusion-based models achieving unprecedented fidelity at the cost of introducing new types of visual artifacts. While existing Image Quality Assessment (IQA) methods provide holistic quality scores, they lack interpretability and fail to distinguish between different artifact types arising from modern SR approaches. To address this gap, we introduce SR-Ground, a large-scale dataset specifically designed for fine-grained artifact segmentation in super-resolved images. The dataset comprises images processed by a diverse set of state-of-the-art SR models, with pixel-level annotations for multiple artifact categories. We conduct a large-scale crowdsourcing study involving 1,062 participants to validate and refine automatically generated segmentations, resulting in a highquality dataset of 63,000 images spanning 6 distinct artifact types. We demonstrate that training IQA models with grounding capabilities on SR-Ground significantly improves performance on downstream tasks. Furthermore, we introduce a fine-tuning pipeline that leverages our grounding model to reduce perceptible artifacts in SR outputs, showcasing the practical utility of our dataset. On a separate benchmark of 1,000 outputs from five unseen SR methods, an Low-Resolution-referenced grounding model significantly improves prominence alignment over its no-reference counterpart and performs best on native real-world datasets of Low-Resolution images without High-Resolution Ground-Truth.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Super-Resolution (SR) has advanced rapidly in recent years, with diffusion-based models achieving unprecedented fidelity at the cost of introducing new types of visual artifacts.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">End-to-End Historical Music Restoration in Latent Space</div>
-<div class="meta-line">Authors: Steven Cho, Junghyun Koo, Raphael Lafargue, Tushar Dhyani, Eloi Moliner, Yuki Mitsufuji</div>
-<div class="meta-line">Venue: ICASSP 2027</div>
-<div class="meta-line">First: 2026-09-30T19:11:36+00:00 · Latest: 2026-09-30T19:11:36+00:00</div>
-<div class="meta-line">Comments: 5 pages, 2 figures, 3 tables; submitted to ICASSP 2027. Code and audio demos available at the project repository</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.00607v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.00607v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Historical music restoration (HMR) has almost exclusively focused on constrained problems such as Super-Resolution or the restoration of solo pieces, under-exploring the general task of restoring orchestral historical music, which has multiple instruments. This under-exploration is largely because the HMR domain, early-20th-century recordings, has no pre-degradation ground-truth pairs, making the restoration task unsupervised and more challenging. This paper presents a supervised end-to-end orchestral HMR benchmark by exploring both the synthetic degradation functions and the end-to-end generative deep-learning restoration methods. We simulate the historical recording degradation chain more faithfully than prior work, which makes orchestral restoration into a tractable supervised problem. A latent flow-matching model trained on the resulting synthetic pairs outperforms existing HMR baselines on intrusive, non-intrusive, and subjective evaluations. We also curate and release a 9.3-hour license-free, unpaired, historical classical-music test set, along with code and audio demos.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Historical music restoration (HMR) has almost exclusively focused on constrained problems such as Super-Resolution or the restoration of solo pieces, under-exploring the general task of restoring orchestral historical music, which has multiple instruments.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Super-Resolving Unseen Hyperspectral Sensors at Any Scale via Spatial Operators</div>
-<div class="meta-line">Authors: Ji-Xuan He, Guohang Zhuang, Bo Junge, Tingyi Li, Lingchen, Miaomiao Cai, Yanan Qiao, Xiujin Liu, Junfeng Fang</div>
-<div class="meta-line">First: 2026-09-30T15:12:47+00:00 · Latest: 2026-09-30T15:12:47+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39926v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39926v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Achieving cross-sensor generalization and arbitrary-scale reconstruction with a single model remains challenging in hyperspectral super-resolution (HSR). Although recent methods support arbitrary-scale reconstruction, applying them to new sensors or scales beyond the training range often requires additional data and computation to maintain reconstruction quality. To address these challenges, we propose OmniHSR, which predicts band-shared spatial operators rather than spectral values. Cross-Spectral Mapping (CSM) resamples inputs with any number of bands to fixed reference positions and predicts local operators with Gaussian supports. Continuous Operator-Field Reconstruction (COFR) composes these operators into a continuous field and applies them to all original bands for arbitrary-scale reconstruction. Experiments demonstrate that operator prediction outperforms direct spectral-value prediction on all seven datasets. Trained solely on ARAD with only 0.538M parameters, OmniHSR outperforms all directly transferred baselines on six unseen datasets without target-domain training data or adaptation. Across twelve upsampling factors from $\times2$ to $\times48$, it improves average PSNR on Pavia U and Chikusei by 0.55 dB over the strongest baseline. It also surpasses baselines trained from scratch or adapted on the target sensor and achieves up to $36\times$ faster inference. Our code will be publicly released soon.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Achieving cross-sensor generalization and arbitrary-scale reconstruction with a single model remains challenging in hyperspectral super-resolution (HSR).</div>
-</details>
-</div>
-<div class="card">
-<div class="title">FANVIDv2: Evaluating Video Super-Resolution by Face and Licence-Plate Recognition Under Compound Degradation</div>
-<div class="meta-line">Authors: Kavitha Viswanathan, Vrinda Goel, Shlesh Gholap, Devayan Ghosh, Madhav Gupta, Dhruvi Ganatra, Sanket Potdar, Amit Sethi</div>
-<div class="meta-line">First: 2026-09-30T12:52:12+00:00 · Latest: 2026-09-30T12:52:12+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39649v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39649v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Video super-resolution (VSR) is normally judged by PSNR and SSIM on clips that were downsampled bicubically, although in surveillance its purpose is to make faces and licence plates \emph{recognisable}. We present FANVIDv2, a benchmark that scores VSR by what a recognition pipeline can do with its output. FANVIDv2 provides $320\times180$ low-resolution (LR) clips with high-resolution (HR) references for 48 public figures (with one HR gallery image each) and 375 licence-plate clips covering 360 distinct plate strings. LR clips are generated with a randomised compound degradation (blur, resize jitter, sensor noise, JPEG compression, final downsampling) rather than bicubic downsampling alone. Two metrics score recognition \emph{inside} detections: FaceRecBox rewards a face only if it is localised and correctly identified, and TextRecBox scores plate transcriptions by normalised edit distance weighted by localisation quality. With a 2.3\,M-parameter VSR baseline (RCDM), FaceRecBox rises from 0.6864 to 0.7222, identity accuracy on matched faces from 84.35\% to 86.93\%, and TextRecBox from 0.3088 to 0.3667; a residual-map gated variant (RCDM-RMGF) reaches 0.3801 on plates. We describe the degradation model, the baseline architectures and the scorers in detail, and release annotations, metadata, download and degradation scripts and evaluation code.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Video super-resolution (VSR) is normally judged by PSNR and SSIM on clips that were downsampled bicubically, although in surveillance its purpose is to make faces and licence plates \emph{recognisable}.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Decoupling Multi-Contrast Super-Resolution: Self-Supervised Implicit Re-Representation for Unpaired Cross-Modal Synthesis</div>
-<div class="meta-line">Authors: Yinzhe Wu, Hongyu Rui, Fanwen Wang, Jiahao Huang, Zhenxuan Zhang, Haosen Zhang, Zi Wang, Guang Yang</div>
-<div class="meta-line">First: 2025-05-09T07:48:52+00:00 · Latest: 2026-09-30T07:32:18+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.05855v4">Abs</a> · <a href="https://arxiv.org/pdf/2505.05855v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Multi-contrast super-resolution (MCSR) is crucial for enhancing MRI but current deep learning methods are limited. They typically require large, paired low- and high-resolution (LR/HR) training datasets, which are scarce, and are trained for fixed upsampling scales. While recent self-supervised methods remove the paired data requirement, they fail to leverage valuable population-level priors. In this work, we propose a novel, decoupled MCSR framework that resolves both limitations. We reformulate MCSR into two stages: (1) an unpaired cross-modal synthesis (uCMS) module, trained once on unpaired population data to learn a robust anatomical prior; and (2) a lightweight, patient-specific implicit re-representation (IrR) module. This IrR module is optimized in a self-supervised manner to fuse the population prior with the subject&#x27;s own LR target data. This design uniquely fuses population-level knowledge with patient-specific fidelity without requiring paired target-domain LR/HR training data or paired cross-modal HR reference-target training data. Here, &#x27;unpaired&#x27; refers to the population-level training setting; at subject-specific inference, as in standard MCSR, the method uses a matched HR reference image from another contrast together with the subject&#x27;s LR target image. By building the IrR module on an implicit neural representation, our framework is also inherently scale-agnostic. Our method demonstrates superior quantitative performance on different datasets, with exceptional robustness at extreme scales (16x, 32x), a regime where competing methods fail. Our work presents a data-efficient, flexible, and computationally lightweight paradigm for MCSR, enabling high-fidelity, arbitrary-scale reconstruction without the need for paired population-level supervision.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Multi-contrast super-resolution (MCSR) is crucial for enhancing MRI but current deep learning methods are limited.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">MRI Super-Resolution with RCDM/WaveMix and Task-Aware Segmentation</div>
-<div class="meta-line">Authors: Kavitha Viswanathan, Harsh Choudhary, Amit Sethi</div>
-<div class="meta-line">First: 2026-09-30T06:23:43+00:00 · Latest: 2026-09-30T06:23:43+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39083v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39083v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Super-resolution and quality enhancement of 1.5\,T brain MRI are normally validated with image-fidelity metrics, although their purpose is to improve downstream analysis. We study whether enhancement improves tissue segmentation, and for which segmenters. We propose an unpaired, physics-guided training pipeline for a lightweight ($\le$2.5\,M parameter) recurrent convolutional enhancer: a six-module stochastic 1.5\,T degradation operator, a residual adversarial network that adds scanner-specific texture without moving anatomy, and a cycle-consistent objective with an anti-identity penalty that rules out the copy solution. We then train U-Net, Swin-UNet and wavelet token-mixing segmenters \citep{jeevan2023wavemix} from scratch on either raw or enhanced 1.5\,T images of the same subjects, using identical labels and subject-level splits, for three enhancer variants and two datasets. On ABIDE (41 held-out subjects, FreeSurfer labels) enhancement significantly improves the wavelet segmenter (mean Dice $+0.014$, Wilcoxon $p=3.5\times10^{-5}$; CSF $+0.018$, grey matter $+0.013$), significantly degrades the U-Net ($-0.008$, $p=5.1\times10^{-4}$) and leaves Swin-UNet unchanged. On IXI, whose labels come from FSL-FAST, enhancement lowers Dice for all nine pairings, almost entirely through CSF; we trace this to spatially implausible CSF voxels in the labels that penalise smoother predictions. Enhancement of low-field MRI should therefore be validated per downstream model and against reliable labels.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Super-resolution and quality enhancement of 1.5\,T brain MRI are normally validated with image-fidelity metrics, although their purpose is to improve downstream analysis.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Simon-SR: Spatially Adaptive Modulation and Visual Prompt Adaptation for Text-Reinforced Super-Resolution</div>
-<div class="meta-line">Authors: Haotong Cheng, Yuxuan Li, Zijie Cui</div>
-<div class="meta-line">First: 2026-07-10T12:30:00+00:00 · Latest: 2026-09-30T02:23:20+00:00</div>
-<div class="meta-line">Comments: Multi-modal Single Image Super-Resolution</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2607.09351v2">Abs</a> · <a href="https://arxiv.org/pdf/2607.09351v2">PDF</a> · <a href="https://github.com/CHT05017/ICAIS26-SimonSR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Severe downsampling makes single image super-resolution (SISR) an ill-posed problem, in which the language-guided multi-modal methods are especially vulnerable to erroneous priors and require costly textual annotations. To address these issues, we propose Simon-SR, a multi-modal SISR framework leveraging learnable prompts for efficient semantic mining and robust text-image fusion. Simon-SR treats textual semantics as learnable latent variables. Specifically, the Contrastive Prompt Learning (CPL) mines instance-level semantics from unannotated images with frozen CLIP encoders, and Prompt-Guided Spatially Adaptive Refinement (PSAR) injects them through attention-gated multi-modal fusion. On CUB and COCO2017 at $\times4$ and $\times16$, Simon-SR gains up to 0.50 dB PSNR and 0.0133 SSIM over current SOTA. The project is available at https://github.com/CHT05017/ICAIS26-SimonSR</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Severe downsampling makes single image super-resolution (SISR) an ill-posed problem, in which the language-guided multi-modal methods are especially vulnerable to erroneous priors and require costly textual annotations.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261013_0906.html">20261013_0906</a>
+      <div class="history-list"><a href="archive/20261014_0710.html">20261014_0710</a>
+<a href="archive/20261013_0906.html">20261013_0906</a>
 <a href="archive/20261012_0636.html">20261012_0636</a>
 <a href="archive/20261011_0607.html">20261011_0607</a>
 <a href="archive/20261010_0659.html">20261010_0659</a>
