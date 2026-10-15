@@ -74,12 +74,34 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-15 05:59</span>
+        <span class="badge">2026-10-16 05:53</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">VascuSR: Iterative Anatomy-Aware Diffusion for CT Super-Resolution</div>
+<div class="meta-line">Authors: Hairong Ni, Jiahe Huang, Minghao Guo, Wojciech Matusik, Rose Yu</div>
+<div class="meta-line">First: 2026-10-14T17:12:56+00:00 · Latest: 2026-10-14T17:12:56+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20509v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20509v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Generative super-resolution (SR) can recover sharp detail in computed tomography (CT) images from severely downsampled observations, but the missing high-frequency content is not uniquely determined by the low-resolution input. Consequently, visually plausible reconstructions may contain anatomically unsupported vascular detail, such as missing, spurious, or incorrectly connected vessels. To overcome this challenge, we introduce VascuSR, an iterative anatomy-aware diffusion framework that combines image reconstruction with explicit 3D vascular guidance. First, to provide richer anatomical guidance, we use an explicit 3D vascular representation that captures structural information beyond individual slices. This representation also simplifies vascular refinement by allowing a lightweight 3D generative refiner to focus on vascular structure rather than complex CT appearance. Second, to guide slice-wise SR, a lightweight anatomy controller injects the refined structure into the diffusion decoder, while iterative feedback updates this guidance from each new SR volume. On re-annotated MSD Task08 and HVM datasets, VascuSR outperforms interpolation and learning-based SR baselines in segmentation accuracy (Dice and clDice) and 3D vascular structure (connectivity and mean centerline distance), while maintaining image quality comparable to its SR backbone. Compared with learning-based baselines, VascuSR reduces class-averaged connected-component counts by over 20% on both datasets and mean centerline distance by over 10% on MSD.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Generative super-resolution (SR) can recover sharp detail in computed tomography (CT) images from severely downsampled observations, but the missing high-frequency content is not uniquely determined by the low-resolution input.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Extreme-Scale Super-Resolution of Homogeneous Turbulence from a Single Realization</div>
+<div class="meta-line">Authors: Arth Sojitra, Muhammad Abid, Omer San</div>
+<div class="meta-line">First: 2026-10-14T14:54:20+00:00 · Latest: 2026-10-14T14:54:20+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20305v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20305v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Homogeneous turbulent flows exhibit recurring multiscale structures across spatially separated regions, suggesting that a single flow realization may contain sufficient information to learn representations of unresolved scales. We investigate this hypothesis through an extreme super-resolution framework in which a wide-activation deep super-resolution (WDSR) network is trained exclusively on overlapping patches extracted from a single high-resolution turbulent realization. Previously unseen flow fields are reconstructed through patchwise prediction followed by Hann-window-weighted overlap-add assembly. The framework is evaluated for two-dimensional homogeneous isotropic turbulence at super-resolution factors of x32 and x64, representing severe spatial under-resolution. Despite the limited training data, the proposed approach reconstructs coherent vortical structures and recovers fine-scale features more accurately than conventional interpolation. Spectral and statistical analyses further demonstrate improved recovery of high-wavenumber energy content and multiscale flow characteristics. To assess the effectiveness of exploiting internal spatial information, we compare the proposed framework against WDSR models trained on 1, 25, 50, and 100 complete high-resolution snapshots without patch extraction. This comparison distinguishes the benefits of localized learning from those associated with increasing the number of training realizations. The results demonstrate that exploiting spatial redundancy within a single turbulent realization enables accurate reconstruction of previously unseen flow fields, even under extreme spatial under-resolution. These findings establish single-realization patch-based learning as a promising data-efficient approach for turbulent super-resolution when high-resolution training data are scarce.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Homogeneous turbulent flows exhibit recurring multiscale structures across spatially separated regions, suggesting that a single flow realization may contain sufficient information to learn representations of unresolved scales.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">BridgeTwist: Twisting Schrödinger Bridges for Training-Free Conditional Sampling</div>
 <div class="meta-line">Authors: Mengyu Li, Qianqian Qu, Jun S. Liu</div>
 <div class="meta-line">Venue: NeurIPS 2026</div>
@@ -409,32 +431,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Solving severely ill-posed imaging inverse problems requires recovering image structures that are unobservable or weakly constrained by the measurements.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">GB-LSR: Local Spectral Decoding with a Learned Global Bandwidth for Arbitrary-Scale Super-Resolution</div>
-<div class="meta-line">Authors: Max Shad, Naeem Khoshnevis</div>
-<div class="meta-line">First: 2026-06-17T21:50:05+00:00 · Latest: 2026-10-02T07:10:25+00:00</div>
-<div class="meta-line">Comments: 28 pages, 11 figures, 16 tables; v2: substantially revised and retitled; the main evaluation is now arbitrary-scale super-resolution against released checkpoints, and the native-reconstruction experiments are a design study of GB-LSR variants</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.19617v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.19617v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We present GB-LSR (Global-Bandwidth Local Spectral Representation), a fixed-grid local spectral representation for continuous image decoding. The image domain is partitioned into non-overlapping square patches. Each patch carries coefficients for a truncated Fourier basis, predicted by a single linear projection from shared convolutional-encoder features, and one trainable scalar bandwidth is shared across every patch and every image. As in earlier local spectral decoders, decoding at a continuous coordinate is a fixed-size basis contraction whose cost is set by the spectral cutoff; GB-LSR learns the bandwidth of that basis instead of fixing it. We evaluate an arbitrary-scale super-resolution extension, GB-LSR-Scalar-ASR, against the authors&#x27; released LIIF, LTE, and SRNO checkpoints on the same RDN encoder, with every method scored under one protocol and timed in one session per scale, each on one GPU. It runs 1.25x faster than LIIF-RDN at x4 and as fast as SRNO-RDN, whose released code uses 15 times as much peak memory on Urban100. It trails the three encoder-matched baselines by 0.07 to 0.79 dB PSNR-Y in distribution, SRNO-RDN by 0.35 dB on average. Removing the local ensemble raises the speedup to 2.41x over LIIF-RDN and 1.95x over SRNO-RDN at x4, and to 3.00x and 2.41x at x8, without changing PSNR-Y beyond seed variation, at the cost of value jumps at cell boundaries of 0.22 gray levels (of 255) on average at x4. Against the EDSR-baseline checkpoints of five recent methods at x4, GB-LSR-Scalar-ASR scores above or within 0.17 dB on PSNR-Y of LMF, SRNO-EDSR, and OPE-SR-EDSR (1.39 to 6.43 million parameters against 22.02) and 0.14 to 0.57 dB below GSASR and Thera (20.44 and 5.85 million), and has a higher mean LPIPS at x4 than every baseline.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We present GB-LSR (Global-Bandwidth Local Spectral Representation), a fixed-grid local spectral representation for continuous image decoding.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Convergent Plug-and-Play Image Restoration with Annealed Noise Levels</div>
-<div class="meta-line">Authors: Samuel Hurault</div>
-<div class="meta-line">First: 2026-09-26T09:12:06+00:00 · Latest: 2026-10-01T17:00:14+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.32393v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.32393v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Plug-and-Play (PnP) methods solve imaging inverse problems by incorporating deep denoisers into iterative optimization algorithms. Although practical implementations often decrease the denoiser noise level $σ$ along iterations, most existing convergence analyses assume a fixed denoiser. In this work, we establish convergence guarantees for a broad family of Plug-and-Play algorithms with annealed noise level, spanning deterministic methods (RED--GD and PnP--PGD) and stochastic methods (SNORE, equivariant RED, and a variant of PnP--Flow). For each method, we identify an explicit, nonconvex objective associated with the terminal denoising level and prove asymptotic stationarity of the iterates with respect to this objective. Our analysis does not prescribe any decay rate for the noise schedule, and our assumptions cover both learned gradient-step denoisers and exact MMSE denoisers. Overall, our theoretical results bridge the gap between existing PnP convergence theory and the decreasing-denoising practices used by state-of-the-art image restoration methods. We empirically demonstrate the benefits of such schedules and illustrate the predicted convergence behavior on several imaging inverse problems, including inpainting, super-resolution, demosaicing and tomography.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Plug-and-Play (PnP) methods solve imaging inverse problems by incorporating deep denoisers into iterative optimization algorithms.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261014_0710.html">20261014_0710</a>
+      <div class="history-list"><a href="archive/20261015_0559.html">20261015_0559</a>
+<a href="archive/20261014_0710.html">20261014_0710</a>
 <a href="archive/20261013_0906.html">20261013_0906</a>
 <a href="archive/20261012_0636.html">20261012_0636</a>
 <a href="archive/20261011_0607.html">20261011_0607</a>
