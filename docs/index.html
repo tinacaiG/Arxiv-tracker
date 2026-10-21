@@ -74,12 +74,87 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-21 06:00</span>
+        <span class="badge">2026-10-22 06:02</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">WorldSR: Harnessing World Knowledge Search for Grounded Image Super-Resolution</div>
+<div class="meta-line">Authors: Junyuan Deng, Xinyi Wu, Zhenyao Wu, Song Wang, Yu Wang, Congchao Zhu</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-20T15:54:25+00:00 · Latest: 2026-10-20T15:54:25+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS 2026. Project Page: https://gwanjyun.github.io/worldsr.github.io/</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.28423v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.28423v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://gwanjyun.github.io/worldsr.github.io/">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Generative-prior-based super-resolution (SR) methods leverage implicit knowledge learned from large-scale models to enhance low-resolution inputs. However, such priors are inherently stochastic and optimized for diverse generation, conflicting with the deterministic, high-fidelity reconstruction required for SR. It is also tied to the base model, costly to update, and prone to hallucinations as real-world data evolves. To address these limitations, we introduce WorldSR, a novel framework that augments SR with explicit, entity-aligned visual world knowledge. WorldSR automatically decomposes the input into semantic entities and performs entity-wise retrieval of structurally and semantically aligned images from a large-scale external corpus. For efficiency and reliability, we incorporate a memory mechanism to reuse previously retrieved results and a multi-step filtering process to refine candidate references. The selected references as world knowledge are then integrated through a novel multi-reference super-resolution model, which provides fine-grained constraints for detail synthesis and structural recovery. Experiments on real-world SR benchmarks show that WorldSR consistently improves structural fidelity and visual quality, outperforming existing generative super-resolution methods. Our results suggest that entity-level grounding in external visual world knowledge provides a simple and effective complement to model-bound generative priors.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Generative-prior-based super-resolution (SR) methods leverage implicit knowledge learned from large-scale models to enhance low-resolution inputs.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Implicit Neural Models for Direct Multi-Shell Diffusion MRI Signal Estimation</div>
+<div class="meta-line">Authors: Sanna Persson, Fabian Leander Sinzinger, Christoffer Olsson, Rodrigo Moreno</div>
+<div class="meta-line">First: 2026-10-16T11:12:13+00:00 · Latest: 2026-10-20T15:02:45+00:00</div>
+<div class="meta-line">Comments: 23 pages (9 pages main text + supplementary material), 9 figures, 18 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.24034v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.24034v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Diffusion magnetic resonance imaging is a noninvasive technique that is sensitive to the motion of water molecules in human tissue. The image signal is commonly described in q-space; however, a complete coverage of this space is often infeasible due to hardware and acquisition time limitations. In this work, we propose to represent the entire diffusion signal using an implicit neural representation network with wavelet activation functions. The signal space is encoded using Fourier features and spherical harmonics basis functions for a continuous output distribution of the raw diffusion data, enabling both super-resolution and q-space interpolation. Additionally, we introduce a pretraining strategy using a group template, enabling faster per-subject optimisation when combined with nonlinear registrations of subjects into template space. We tested the method with 10 subjects from the Human Connectome Project and 26 subjects from in-house data (multidimensional diffusion MRI from a Parkinson&#x27;s disease cohort). The results show that the proposed method yields high-fidelity reconstructions with significantly reduced memory requirements compared to raw diffusion-weighted images. The pretraining scheme showed good generalisability properties on data acquired with very different protocols. We further assess the method on downstream metrics relevant to diffusion MRI data from the learned representations.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Diffusion magnetic resonance imaging is a noninvasive technique that is sensitive to the motion of water molecules in human tissue.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Efficient One-Step Diffusion Restoration Model with Compact Token Compression and Linear Attention</div>
+<div class="meta-line">Authors: Bingtian Qiao, Yue Shi, Yingjie Zhou, Yong Guo, Guangtao Zhai, Jiezhang Cao</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-05-22T10:07:02+00:00 · Latest: 2026-10-20T07:41:07+00:00</div>
+<div class="meta-line">Comments: NeurIPS 2026; code: https://github.com/Seiun-Sky-debug/SANASR</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.23451v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.23451v2">PDF</a> · <a href="https://github.com/Seiun-Sky-debug/SANASR">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Real-world image super-resolution aims to recover high-quality images from complex and unknown real-world degradations. However, existing generative Real-ISR methods largely inherit the dense latent representations and quadratic-cost global modeling paradigm developed for high-resolution image synthesis, causing computation, memory usage, and inference latency to scale unfavorably with resolution and thus limiting practical deployment. We argue that the key bottleneck lies not in insufficient restoration priors, but in excessive token redundancy and costly token interactions during high-resolution restoration. Motivated by this observation, we revisit Real-ISR from the perspectives of compact latent representation and linear-complexity modeling, and propose SANA-SR, an efficient one-step restoration framework. Specifically, SANA-SR employs a deep compression autoencoder with a 32x compression ratio to drastically reduce latent tokens while preserving restoration-relevant structures and textures. On top of this compact latent space, we introduce a linear-attention DiT with LoRA fine-tuning, enabling efficient high-resolution restoration with linear-complexity token mixing. Extensive experiments on all benchmark datasets demonstrate that SANA-SR achieves highly competitive and often superior quantitative performance against existing methods, while restoring clearer and more realistic textures. Moreover, after pruning, the deployed model runs in 0.019s with 407.95G MACs and 344M parameters, highlighting its strong potential for practical mobile deployment.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Real-world image super-resolution aims to recover high-quality images from complex and unknown real-world degradations.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">PixelSR: Pixel-Space Orthogonal Flow Decoupling for Real-World Image Super-Resolution</div>
+<div class="meta-line">Authors: Xiang Lv, Kai Zhao, Qiang Wang, Qiao Mo, Chao Zhou, Mingwen Shao</div>
+<div class="meta-line">First: 2026-10-20T07:21:29+00:00 · Latest: 2026-10-20T07:21:29+00:00</div>
+<div class="meta-line">Comments: 21 pages, 11 figures. Submission under review</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.27759v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.27759v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Latent diffusion models have recently achieved remarkable progress in Real-world Image Super-Resolution (Real-SR). However, existing methods consistently exhibit a persistent seesaw effect: enhancing perceptual realism compromises structural fidelity. This effect, we argue, is not intrinsic to diffusion models, but largely stems from the architectural constraints of prevailing two-stage frameworks. To address this challenge, we propose PixelSR, a novel single-stage Pixel Diffusion Transformer for Real-SR that operates directly in pixel space. Specifically, PixelSR consists of two core designs: Pixel-space Conditional Diffusion and Orthogonal Flow Decoupling. The former establishes an effective pixel-space restoration framework by integrating spatially aligned LR conditioning, visual semantic guidance, and lightweight texture refinement, thereby bypassing VAE compression and enabling end-to-end optimization directly in RGB space. Complementarily, the latter decomposes the asymmetric flow target into a low-rank semantic component and a noise-free orthogonal texture component. By routing these components to specialized branches, it achieves decoupled optimization with reduced mutual interference. Benefiting from these designs, our PixelSR restores perceptually realistic details while faithfully preserving structural content. Extensive experiments across multiple benchmarks demonstrate that PixelSR not only achieves competitive performance, but also effectively mitigates the fidelity--realism seesaw effect.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Latent diffusion models have recently achieved remarkable progress in Real-world Image Super-Resolution (Real-SR).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Stable Signer V3: 4D Deformable Primitive Splatting Is All You Need for Sign Language Production</div>
+<div class="meta-line">Authors: Sen Fang, Liwei Che, Dimitris N. Metaxas</div>
+<div class="meta-line">First: 2026-10-18T00:28:04+00:00 · Latest: 2026-10-20T07:14:53+00:00</div>
+<div class="meta-line">Comments: 12 figures, 10 tables. Project Page at: https://signerx.github.io/Stable-Signer-V3</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.24926v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.24926v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://signerx.github.io/Stable-Signer-V3">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We present Stable Signer V3, an interactive high-resolution sign language avatar system built on 4D Deformable Primitive Splatting. It addresses three limitations of existing avatars: restricted facial expression, inaccurate identity-specific body deformation, and loss of fine appearance details. Shared Face Primitive Splatting adds transferable superquadric primitives for richer expression control; Test-Time Body Primitive Splatting learns an identity-specific virtual muscle layer for more faithful motion; and Test-Time Tunneling Super-Resolution uses TunnelingNet to recover identity-specific high-resolution details. Both test-time modules are optimized once per signer identity; inference then runs entirely from the stored identity parameters. Together, they reduce facial geometry error by 71.4%, body-boundary error by 35.1% across ten identities, and high-resolution RGB reconstruction error by 24.2% on held-out evaluations, while retaining interactive streaming.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We present Stable Signer V3, an interactive high-resolution sign language avatar system built on 4D Deformable Primitive Splatting.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">LSGQuant: Layer-Sensitivity Guided Quantization for One-Step Diffusion Real-World Video Super-Resolution</div>
+<div class="meta-line">Authors: Tianxing Wu, Zheng Chen, Cirou Xu, Bowen Chai, Yong Guo, Yutong Liu, Linghe Kong, Yulun Zhang</div>
+<div class="meta-line">Venue: ICML 2026</div>
+<div class="meta-line">First: 2026-02-03T06:53:19+00:00 · Latest: 2026-10-20T06:36:02+00:00</div>
+<div class="meta-line">Comments: Accepted at ICML 2026. Code is available at: https://github.com/zhengchen1999/LSGQuant</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2602.03182v2">Abs</a> · <a href="https://arxiv.org/pdf/2602.03182v2">PDF</a> · <a href="https://github.com/zhengchen1999/LSGQuant">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">One-Step Diffusion Models have demonstrated promising capability and fast inference in video super-resolution (VSR) for real-world. Nevertheless, the substantial model size and high computational cost of Diffusion Transformers (DiTs) limit downstream applications. While low-bit quantization is a common approach for model compression, the effectiveness of quantized models is challenged by the high dynamic range of input latent and diverse layer behaviors. To deal with these challenges, we introduce LSGQuant, a layer-sensitivity guided quantizing approach for one-step diffusion-based real-world VSR. Our method incorporates a Dynamic Range Adaptive Quantizer (DRAQ) to fit video token activations. Furthermore, we estimate layer sensitivity and implement a Variance-Oriented Layer Training Strategy (VOLTS) by analyzing layer-wise statistics in calibration. We also introduce Quantization-Aware Optimization (QAO) to jointly refine the quantized branch and a retained high-precision branch. Extensive experiments demonstrate that our method has nearly performance to origin model with full-precision and significantly exceeds existing quantization techniques. Code is available at: https://github.com/zhengchen1999/LSGQuant.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">One-Step Diffusion Models have demonstrated promising capability and fast inference in video super-resolution (VSR) for real-world.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Time-Correlated Video Bridge Matching</div>
 <div class="meta-line">Authors: Viacheslav Vasilev, Arseny Ivanov, Nikita Gushchin, Maria Kovaleva, Alexander Korotin</div>
 <div class="meta-line">First: 2025-10-14T12:35:30+00:00 · Latest: 2026-10-19T13:41:34+00:00</div>
@@ -150,18 +225,6 @@ summary{cursor:pointer;color:var(--acc)}
 </details>
 </div>
 <div class="card">
-<div class="title">Stable Signer V3: 4D Deformable Primitive Splatting Is All You Need for Sign Language Production</div>
-<div class="meta-line">Authors: Sen Fang, Liwei Che, Dimitris N. Metaxas</div>
-<div class="meta-line">First: 2026-10-18T00:28:04+00:00 · Latest: 2026-10-18T00:28:04+00:00</div>
-<div class="meta-line">Comments: 12 figures, 10 tables. Project Page at: https://signerx.github.io/Stable-Signer-V3</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.24926v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.24926v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://signerx.github.io/Stable-Signer-V3">Project1</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We present Stable Signer V3, an interactive high-resolution sign language avatar system built on 4D Deformable Primitive Splatting. It addresses three limitations of existing avatars: restricted facial expression, inaccurate identity-specific body deformation, and loss of fine appearance details. Shared Face Primitive Splatting adds transferable superquadric primitives for richer expression control; Test-Time Body Primitive Splatting learns an identity-specific virtual muscle layer for more faithful motion; and Test-Time Tunneling Super-Resolution uses TunnelingNet to recover identity-specific high-resolution details. Both test-time modules are optimized once per signer identity; inference then runs entirely from the stored identity parameters. Together, they reduce facial geometry error by 71.4%, body-boundary error by 35.1% across ten identities, and high-resolution RGB reconstruction error by 24.2% on held-out evaluations, while retaining interactive streaming.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We present Stable Signer V3, an interactive high-resolution sign language avatar system built on 4D Deformable Primitive Splatting.</div>
-</details>
-</div>
-<div class="card">
 <div class="title">Arbitrary-Scale Anisotropic 3D MRI Super-Resolution with Gaussian Prototypes</div>
 <div class="meta-line">Authors: Aditya Rastogi, Ramon Leiser, Prateek Singh, Martha Foltyn-Dumitru, Martin Bendszus, Fabian Bamberg, Klaus Maier-Hein, Kai Schlamp, Alexander Radbruch, Gianluca Brugnara, Philipp Vollmuth</div>
 <div class="meta-line">First: 2026-10-17T20:18:08+00:00 · Latest: 2026-10-17T20:18:08+00:00</div>
@@ -206,18 +269,6 @@ summary{cursor:pointer;color:var(--acc)}
 <div class="mono">EEG spatial super-resolution aims to recover high-density neural signals from sparse electrode observations. Existing methods have achieved substantial progress through spatial modeling, generative reconstruction, and temporal representation learning. However, the current EEG state contains two different sources of information: predictable evolution inherited from preceding states and newly emerging changes revealed by the current observation. Most approaches typically do not model these two components explicitly. In this work, we formulate streaming EEG spatial super-resolution as a sequential state filtering problem and propose Dynamic State Filtering (DSF). Rather than relying on a single temporal reconstruction pathway, DSF combines a history-aware dynamical branch with an innovation-filtering branch that explicitly decomposes waveform-state estimation into prediction and observation-driven correction. To infer how spatially incomplete innovations should affect missing locations, DSF routes the observed innovations across electrodes through a mask-constrained, topology-aware transition operator and incorporates them through uncertainty-aware state correction. The two complementary estimates are finally fused to reconstruct the dense EEG signal. Experiments on SEED, SEED-IV and BCI2000 demonstrate that DSF improves reconstruction fidelity and downstream utility while maintaining robustness under dynamically changing and unreliable sparse observations.</div></details>
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">EEG spatial super-resolution aims to recover high-density neural signals from sparse electrode observations.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Implicit Neural Models for Direct Multi-Shell Diffusion MRI Signal Estimation</div>
-<div class="meta-line">Authors: Sanna Persson, Fabian Leander Sinzinger, Christoffer Ohlsson, Rodrigo Moreno</div>
-<div class="meta-line">First: 2026-10-16T11:12:13+00:00 · Latest: 2026-10-16T11:12:13+00:00</div>
-<div class="meta-line">Comments: 23 pages (9 pages main text + supplementary material), 9 figures, 18 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.24034v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.24034v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Diffusion magnetic resonance imaging is a noninvasive technique that is sensitive to the motion of water molecules in human tissue. The image signal is commonly described in q-space; however, a complete coverage of this space is often infeasible due to hardware and acquisition time limitations. In this work, we propose to represent the entire diffusion signal using an implicit neural representation network with wavelet activation functions. The signal space is encoded using Fourier features and spherical harmonics basis functions for a continuous output distribution of the raw diffusion data, enabling both super-resolution and q-space interpolation. Additionally, we introduce a pretraining strategy using a group template, enabling faster per-subject optimisation when combined with nonlinear registrations of subjects into template space. We tested the method with 10 subjects from the Human Connectome Project and 26 subjects from in-house data (multidimensional diffusion MRI from a Parkinson&#x27;s disease cohort). The results show that the proposed method yields high-fidelity reconstructions with significantly reduced memory requirements compared to raw diffusion-weighted images. The pretraining scheme showed good generalisability properties on data acquired with very different protocols. We further assess the method on downstream metrics relevant to diffusion MRI data from the learned representations.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Diffusion magnetic resonance imaging is a noninvasive technique that is sensitive to the motion of water molecules in human tissue.</div>
 </details>
 </div>
 <div class="card">
@@ -384,57 +435,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">We propose GENERIC-FNO, a neural operator that embeds the metriplectic (GENERIC) degeneracy structure of nonequilibrium thermodynamics in function space, coupling reversible, energy-conserving dynamics to irreversible, entropy-producing dynamics via the degeneracy conditions.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Toward a Multimodal Foundation Model for Plasma State Reconstruction</div>
-<div class="meta-line">Authors: Bin Xia, Chuanfei Dong, Boting Li, Yilan Qin, Zikang Xie, Sung Hyun Son, Adam J. Stanier, Jongsoo Yoo, Hantao Ji, Ahmed Diallo, Han Ding, John Wise</div>
-<div class="meta-line">Venue: NeurIPS 2026</div>
-<div class="meta-line">First: 2026-10-10T17:18:48+00:00 · Latest: 2026-10-10T17:18:48+00:00</div>
-<div class="meta-line">Comments: Accepted at the NeurIPS 2026 Workshop on Physical World AI (PhysWorldAI). 15 pages, 5 figures, 5 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15076v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15076v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics. We present a proof of concept toward a multimodal foundation model for plasma state reconstruction during magnetic reconnection, motivated by the Facility for Laboratory Reconnection Experiments (FLARE). Using 250 synthetic VPIC simulations at fixed reference electron beta $β_{e0}=0.2$, with 225 training runs and 25 disjoint validation runs, we train a 5.5M-parameter residual 3D U-Net to reconstruct three magnetic-field components and electron density from incomplete observations. The model combines spatial-only pooling, which preserves all 24 temporal frames, with global spatiotemporal self-attention and rotary positional encoding. Independently masking magnetic and density modalities across random, grid, block, and temporal patterns enables sparse sensing, cross-modal completion, density super-resolution, and temporal completion with a single set of weights and no task-specific retraining. With density fully hidden, just 0.1% magnetic spatial visibility reduces median density NRMSE from approximately 0.9 to 0.1. Conversely, observed density improves current-density reconstruction when magnetic data are absent or extremely sparse. With no magnetic observations, roughly 1% density visibility approaches the density reconstruction accuracy achieved with fully observed magnetic fields, although current structure remains more dependent on direct magnetic measurements. Full magnetic conditioning also stabilizes completion of missing future density frames. These results demonstrate bidirectional cross-modal predictive coupling within this simulation regime. Generalization across plasma regimes or to experimental measurements remains untested.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">DuSRFlow: Dual-Lens Super-Resolution via Parallax-Aware Flow Estimation and Complementary Reference Warping</div>
-<div class="meta-line">Authors: Fangpu Zhang, Huanjing Yue, Zifan Cui, Shaoxiong Tu, Qirui Yang, Jingyu Yang</div>
-<div class="meta-line">First: 2026-10-10T06:28:51+00:00 · Latest: 2026-10-10T06:28:51+00:00</div>
-<div class="meta-line">Comments: Accepted by IEEE Transactions on Multimedia (TMM)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14630v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14630v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Dual-lens super-resolution (DuSR) aims to enhance a wide-angle low-resolution (LR) image by exploiting a telephoto reference (Ref) image. A central challenge in DuSR is reliable reference utilization under large parallax, occlusion, and cross-camera imaging discrepancies. Existing methods often employ off-the-shelf monocular optical flow models to provide geometric priors. However, their assumptions of photometric consistency and smooth motion are violated in dual-lens scenarios, leading to unreliable alignment and degraded reference-based reconstruction. To address these issues, we propose DuSRFlow, a dual-lens super-resolution framework that improves reference utilization from both correspondence learning and reference aggregation. First, we introduce DuFlowNet, a dedicated dual-lens flow estimator for robust cross-view alignment. To train DuFlowNet without ground-truth flow annotations, we develop a real--synthetic data fusion strategy that composites synthetic foreground objects onto real dual-lens image pairs, generating controllable large-parallax samples while preserving realistic cross-camera imaging characteristics. Second, we observe that reference reliability is highly spatially uneven in DuSR, where unreliable local reference responses may suppress the utilization of reliable cues. We therefore propose a Complementary Reference Warping strategy that coordinates patch-based warping and kernel-free-guided deformable warping according to local reference reliability, producing a more reliable reference representation before LR--Ref fusion. In addition, we construct DuSR-RealV2, a challenging real-world benchmark with complex depth variations, large parallax, and occlusion. Extensive experiments on multiple DuSR benchmarks demonstrate that DuSRFlow achieves state-of-the-art performance in reconstruction quality, perceptual quality, and cross-dataset generalization.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Dual-lens super-resolution (DuSR) aims to enhance a wide-angle low-resolution (LR) image by exploiting a telephoto reference (Ref) image.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">TGSR: Text-Grounded Diffusion for Faithful Image Super-Resolution</div>
-<div class="meta-line">Authors: Zhiming Hu, Ran Zhang, Angela Ye, Raghav Goyal, Faraz Ali, Tristan Ty Aumentado-Armstrong, Samrudhdhi B. Rangrej, Konstantinos G. Derpanis, Iqbal Mohomed, Alex Levinshtein</div>
-<div class="meta-line">First: 2026-10-09T20:00:41+00:00 · Latest: 2026-10-09T20:00:41+00:00</div>
-<div class="meta-line">Comments: 22 pages, 9 figures, 12 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14281v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14281v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Diffusion models have achieved remarkable success in image super-resolution (SR) by leveraging strong generative priors to enhance perceptual quality. However, for textual content, these priors often produce text hallucinations: non-existent or distorted text, which alter scene semantics and compromise model reliability. While recent methods focus on enhancing text generation, they do so indiscriminately, leaving hallucinations fundamentally unresolved. We argue the core problem is a lack of selective control. Therefore, we reformulate text SR as a selective generation problem: text is resolved only when reliable generation is expected, while other scene content is fully super-resolved. We introduce TGSR (Text-Grounded Super-Resolution), a test-time framework that progressively identifies and suppresses likely hallucinated text regions during generation. To enable this, we train dedicated detectors on a large-scale dataset curated from diverse diffusion-based SR outputs. TGSR consistently improves text fidelity across multiple backbones, increasing recognition precision by up to 17.68 points without degrading perceptual quality, underscoring the value of selective control in generative SR.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Diffusion models have achieved remarkable success in image super-resolution (SR) by leveraging strong generative priors to enhance perceptual quality.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">MOSAIC: Multi-Scale Object-Centric Slot Adaptation with Image-Guided Prototype Conditioning for Remote Sensing Image Super-Resolution</div>
-<div class="meta-line">Authors: Liuqian Wang, Hanyu Xie, Rongzhen Zhao, Qi Ming, Chunjie Ma, Wentao Chao, Yufei Gao, Chengming Liu, Lei Shi</div>
-<div class="meta-line">First: 2026-10-09T13:03:57+00:00 · Latest: 2026-10-09T13:03:57+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13547v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13547v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Pretrained diffusion Transformers provide powerful generative priors for image restoration, yet adapting them to structure-sensitive tasks remains challenging. Existing methods mainly rely on dense low-resolution features as conditions, which often entangle salient objects with dominant backgrounds and provide limited abstraction for recurring structures across scales and samples. We propose MOSAIC, an object-centric representation learning framework that learns compact structural conditions for generative model adaptation. MOSAIC organizes degraded observations into structural slots that capture complementary object-level and layout-level evidence, integrates them across resolutions, and retrieves recurring priors from a shared prototype memory to complement incomplete image-specific information. The resulting representations are injected into selected layers of a frozen diffusion Transformer through lightweight residual modulation, preserving its pretrained generative prior. We instantiate MOSAIC for remote sensing image super-resolution, where small objects, repetitive structures, and large-scale variation provide a challenging testbed. Experiments on UCMerced, AID, and RSSCN7 show consistent PSNR improvements across $\times 2$ and $\times 4$ settings and favorable LPIPS results at $\times 4$. Qualitative results further demonstrate improved preservation of small objects, structural boundaries, and repetitive spatial patterns.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Pretrained diffusion Transformers provide powerful generative priors for image restoration, yet adapting them to structure-sensitive tasks remains challenging.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261020_0642.html">20261020_0642</a>
+      <div class="history-list"><a href="archive/20261021_0600.html">20261021_0600</a>
+<a href="archive/20261020_0642.html">20261020_0642</a>
 <a href="archive/20261019_0512.html">20261019_0512</a>
 <a href="archive/20261018_0510.html">20261018_0510</a>
 <a href="archive/20261017_0551.html">20261017_0551</a>
