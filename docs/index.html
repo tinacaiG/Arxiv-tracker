@@ -74,12 +74,46 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-23 06:00</span>
+        <span class="badge">2026-10-24 05:47</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">GigaBench: Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution</div>
+<div class="meta-line">Authors: Matteo Fusconi, Alex Costanzino, Pierluigi Zama Ramirez, Luigi Di Stefano</div>
+<div class="meta-line">First: 2026-10-22T17:55:10+00:00 · Latest: 2026-10-22T17:55:10+00:00</div>
+<div class="meta-line">Comments: Project page at https://matteofusconi.github.io/GigaBench Accepted at WACV2027</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.31644v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.31644v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://matteofusconi.github.io/GigaBench">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Learnable Representations (LRs) can fit parametric families of functions to diverse kinds of signals. These emergent neural-native data formats are gathering interest in the scientific community due to their compactness, resolution-agnosticism and amenability to direct neural processing. On the other hand, gigapixel images are becoming increasingly widespread across a variety of scientific, cultural, and industrial domains. In this paper, we present GigaBench, the first benchmark and experimental evaluation focused on deploying LRs with gigapixel imagery. GigaBench includes images collected, acquired, and synthetically rendered across diverse domains, and addresses image compression and super-resolution. We adapt a representative set of LRs, spanning Implicit, Hybrid, and Explicit methods, so as to operate reliably at the gigapixel scale on consumer hardware. Through systematic evaluation across reconstruction quality, model size, compression and inference times, we identify consistent trends across methods and suggest actionable guidance for future investigation.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Learnable Representations (LRs) can fit parametric families of functions to diverse kinds of signals.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Squaring-the-Sphere: Distortion-Free and Seamless Panorama Generation via CubeAtlas</div>
+<div class="meta-line">Authors: Xuhui Zuo, Chenjie Cao, Tengfei Wang, Junta Wu, Yisu Zhang, Chunchao Guo</div>
+<div class="meta-line">First: 2026-10-22T17:06:55+00:00 · Latest: 2026-10-22T17:06:55+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.31565v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.31565v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Generating 360-degree panoramas requires both local perspective fidelity and global spherical continuity. Existing representations face a trade-off: equirectangular projection (ERP) enables seamless panorama modeling but suffers from severe distortion and a domain gap to pre-trained image generators, whereas cubemaps preserve perspective geometry but often produce inconsistent faces and visible seams. We present Squaring-the-Sphere, a panoramic image generation framework built on a novel representation CubeAtlas, which unfolds all cubemap faces into a single compact canvas. By arranging orientation-aligned, rotated polar regions alongside the equatorial faces, this representation preserves the perspective geometry of cubemaps while organizing the cross-face relationships required for seamless panorama assembly. It further enables a pretrained diffusion transformer to model the complete panorama jointly in a single pass, without altering the backbone architecture or positional encoding. While CubeAtlas has a token count comparable to ERP, its structured layout makes many dense attention interactions unnecessary. We therefore introduce a layout-aware sparse attention mask that preserves the interactions required for panorama continuity while removing geometrically irrelevant token pairs. As a result, CubeAtlas achieves better quality than ERP modeling with lower attention computation. Furthermore, we introduce a training-free super-resolution technique and a fusion scheme that enhance fine details in distortion-free perspective space before achieving the final ERP panorama. Experiments on various benchmarks demonstrate that our method improves geometric fidelity, cross-view consistency, and high-resolution visual quality over previous methods.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Generating 360-degree panoramas requires both local perspective fidelity and global spherical continuity.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Noise-Started One-Step Real-World Super-Resolution via LR-Conditioned SplitMeanFlow and GAN Refinement</div>
+<div class="meta-line">Authors: Wei Zhu, Kai Zhang, Yu Zheng, Lei Luo, Yong Guo, Jian Yang</div>
+<div class="meta-line">First: 2026-05-10T05:01:32+00:00 · Latest: 2026-10-22T00:56:49+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.09328v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.09328v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Pre-trained text-to-image (T2I) diffusion models have shown strong potential for real-world image super-resolution (Real-ISR), owing to their noise-started generation process that enables realistic texture synthesis and captures the one-to-many nature of super-resolution. However, diffusion-based Real-ISR methods still face a fundamental efficiency-quality trade-off. Multi-step methods generate high-quality results by iteratively denoising random Gaussian noise under LR conditioning, but suffer from slow sampling. Recent one-step methods greatly improve efficiency, yet they typically replace noise-started generation with direct LR-to-HR restoration, which weakens stochasticity and limits realistic detail synthesis. To address this issue, we propose SMFSR, a noise-started one-step Real-ISR framework via LR-conditioned SplitMeanFlow and GAN refinement. SMFSR preserves the random-noise starting point of diffusion models and learns a direct noise-to-HR mapping conditioned on the LR image. To this end, Interval Splitting Consistency distills the multi-step generative trajectory into a single average-velocity prediction, enabling efficient one-step generation. To compensate for the reduced opportunity for progressive refinement, we further introduce a GAN refinement stage, where a DINOv3-based discriminator enhances realistic texture synthesis and variational score distillation aligns the generated outputs with the natural image distribution under a frozen diffusion teacher. Extensive experiments demonstrate that SMFSR achieves state-of-the-art perceptual quality among one-step diffusion-based Real-ISR methods while retaining fast single-step inference.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Pre-trained text-to-image (T2I) diffusion models have shown strong potential for real-world image super-resolution (Real-ISR), owing to their noise-started generation process that enables realistic texture synthesis and captures the one-to-many nature of super-resolution.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Decoupled Data Consistency with Diffusion Purification for Image Restoration</div>
 <div class="meta-line">Authors: Xiang Li, Soo Min Kwon, Shijun Liang, Ismail R. Alkhouri, Saiprasad Ravishankar, Qing Qu</div>
 <div class="meta-line">First: 2024-03-10T00:47:05+00:00 · Latest: 2026-10-20T21:52:49+00:00</div>
@@ -398,44 +432,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Video inverse problems are fundamental to streaming, telepresence, and AR/VR, where high perceptual quality must coexist with tight latency constraints.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">High-fidelity Three-Dimensional Flow Field Reconstruction Driven by Turbulent Fluid Dynamics</div>
-<div class="meta-line">Authors: Hanlin Kong, Jianan Wei, Yuntian Chen, Yujia Wang, Wenguan Wang</div>
-<div class="meta-line">First: 2026-10-13T09:36:28+00:00 · Latest: 2026-10-13T09:36:28+00:00</div>
-<div class="meta-line">Comments: 66 pages, 9 main-text figures and 1 main-text table; includes Supplementary Information with 14 figures and 22 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18045v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18045v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">High-fidelity three-dimensional turbulent flow fields are essential for scientific and engineering analyses, yet obtaining them through direct numerical simulation or high-resolution measurements remains expensive. Super-resolution reconstruction from coarse-grained data therefore offers a promising alternative, but remains fundamentally challenging because fine-scale structures are intrinsically three-dimensional and dynamically coupled across scales. Existing data-driven approaches still struggle to recover multiscale volumetric structures and their coherent temporal evolution. To address these limitations, we propose a turbulence-aware framework for time-resolved three-dimensional flow reconstruction. The framework couples a multiscale neural operator, designed to recover volumetric structures, with a state space model to promote temporal consistency in the reconstructed dynamics. In addition, Navier-Stokes residuals are incorporated as soft constraints to regularize the reconstruction toward physically plausible dynamics. A mixture-of-experts mechanism is also introduced to support unsupervised adaptation to unknown coarse-graining. Across evaluations on canonical turbulent systems and atmospheric reanalysis data, the proposed framework reduces reconstruction errors relative to learning-based and classical baselines, while better preserving multiscale spatial structure and coherent temporal evolution. These results validate the effectiveness of the proposed framework in reconstructing high-fidelity three-dimensional flow fields from coarse-grained data.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">High-fidelity three-dimensional turbulent flow fields are essential for scientific and engineering analyses, yet obtaining them through direct numerical simulation or high-resolution measurements remains expensive.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">FlashVSR+: Efficient Video Super-Resolution via Hybrid Attention and Reward-Yield Distribution Matching</div>
-<div class="meta-line">Authors: Ruchang Yao, Shi Guo, Junhao Zhuang, Mingde Yao, Xin Cai, Jiahao Zhan, Bin Fu, Xinyuan Chen, Yu Qiao, Tianfan Xue</div>
-<div class="meta-line">First: 2026-10-13T01:22:50+00:00 · Latest: 2026-10-13T01:22:50+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17552v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17552v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation. However, high-resolution inference remains costly, and distilled models are difficult to align with human preferences. These challenges call for improvements in both model architecture and training strategy. We present \textbf{FlashVSR+} to address both limitations. On the architecture side, we introduce hybrid attention based on the strong locality observed in pretrained VSR models, while retaining sparse global interaction for long-range consistency. It achieves up to $2\times$ DiT speedup and 45\% lower peak memory, enabling spatially untiled 4K VSR on a single 24GB RTX 4090. On the training side, we propose Reward-Yield Distribution Matching Distillation (Ry-DMD) for preference-aligned one-step generation. Ry-DMD uses reward-weighted teacher rollouts to incorporate black-box rewards into distribution matching, without backpropagating through the reward model. We further show that Ry-DMD generalizes beyond VSR to T2I generation. Together, FlashVSR+ delivers stronger restoration quality and substantially improves high-resolution efficiency, with consistent gains in user preference. We release our code, models, and training data at \href{https://www.flashvsr.tech}{\textcolor{FlashBlue}{\textbf{www.flashvsr.tech}}}.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Super-resolution as Spatial Downscaling: Coherence, Structure and Task Utility in Earth Observation</div>
-<div class="meta-line">Authors: Bright Wiredu Nuakoh, Ebenezer Afrifa-Yamoah</div>
-<div class="meta-line">First: 2026-10-12T21:33:12+00:00 · Latest: 2026-10-12T21:33:12+00:00</div>
-<div class="meta-line">Comments: 41 pages, 12 figures. Code: https://doi.org/10.5281/zenodo.23306933</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.23972v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.23972v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Learned satellite super-resolution is commonly assessed by pixel fidelity and potential downlink savings, but these criteria do not establish whether the reconstructed field preserves spatial structure or supports reliable downstream analysis. We treat single-image super-resolution as a spatial downscaling problem and evaluate four lightweight networks, including our compact 0.36 million-parameter model, against interpolation using pixel metrics, directional variograms, spectral band correlation, codispersion and observation coherence. On 735 satellite tiles from 190 scenes, the networks differ by at most 0.03dB and outperform bicubic interpolation by $1.39-1.42$dB at $\times 2$. They recover about 30% of the spectral power above the observation&#x27;s Nyquist frequency and, at $\times 4$, produce more isotropic fields than the reference (range anisotropy 0.59 against 0.49). Energy-based metrics can favour invented detail. Enforcing coherence reaches the quantisation limit, yet at least 99.7% of the remaining error lies in the observation operator&#x27;s null space, which coherence cannot constrain. Under spatially blocked, paired evaluation with two backbones and a sharpening control, learned reconstruction changes land-use accuracy by $-1.0$ to $+3.1$ percentage points (significant in 7 of 24 comparisons) and building-change F1 by $-0.015$ to $+0.024$ (none significant) relative to bicubic interpolation, and amplifies spurious change between two observations of an unchanged scene by $1.3-1.5$ times where interpolation attenuates it. Full-resolution JPEG\,2000 matches or exceeds reduced-resolution transmission with reconstruction at every matched bitrate. Learned reconstruction is most useful when only low-resolution imagery is available, and its evaluation should combine pixel metrics with spatial structure, observation coherence and task-level tests under spatial validation.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Learned satellite super-resolution is commonly assessed by pixel fidelity and potential downlink savings, but these criteria do not establish whether the reconstructed field preserves spatial structure or supports reliable downstream analysis.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261022_0602.html">20261022_0602</a>
+      <div class="history-list"><a href="archive/20261023_0600.html">20261023_0600</a>
+<a href="archive/20261022_0602.html">20261022_0602</a>
 <a href="archive/20261021_0600.html">20261021_0600</a>
 <a href="archive/20261020_0642.html">20261020_0642</a>
 <a href="archive/20261019_0512.html">20261019_0512</a>
