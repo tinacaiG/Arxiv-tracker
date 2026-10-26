@@ -74,12 +74,23 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-26 05:19</span>
+        <span class="badge">2026-10-27 07:02</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Maximum Likelihood on the Joint (Data, Condition) Distribution for Solving Ill-Posed Problems with Conditional Flow Models</div>
+<div class="meta-line">Authors: John S. Hyatt</div>
+<div class="meta-line">First: 2022-08-24T21:50:25+00:00 · Latest: 2026-10-23T17:23:06+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2208.11782v2">Abs</a> · <a href="https://arxiv.org/pdf/2208.11782v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In the absence of conditioning information, normalizing flow models are trained using maximum likelihood. Previous extensions to conditional settings have abandoned the simple maximum-likelihood approach, as obtaining the full joint distribution of data and conditions for training purposes (or equivalently, the true conditional distribution for each point in the training dataset) is impossible. However, under special conditions that nevertheless apply to a wide class of useful problems, it is possible to obtain a simple, computationally cheap proxy with the same global minimum as the conditional likelihood. Conditional flow models trained using this proxy do not require explicit knowledge of the conditional distribution, auxiliary networks or other specific architecture, or additional loss terms beyond maximum likelihood. They provide a natural and powerful way to solve a class of ill-posed inverse problems. I demonstrate these properties on easily visualized toy problems, then use the method to successfully generate class-conditional images and to reconstruct semantically degraded images via super-resolution.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In the absence of conditioning information, normalizing flow models are trained using maximum likelihood.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">GigaBench: Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution</div>
 <div class="meta-line">Authors: Matteo Fusconi, Alex Costanzino, Pierluigi Zama Ramirez, Luigi Di Stefano</div>
 <div class="meta-line">First: 2026-10-22T17:55:10+00:00 · Latest: 2026-10-22T17:55:10+00:00</div>
@@ -421,20 +432,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Generative models are often required to serve many downstream conditional tasks.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">InstantViR: Real-Time Video Inverse Problem Solver with Distilled Diffusion Prior</div>
-<div class="meta-line">Authors: Weimin Bai, Suzhe Xu, Yiwei Ren, Jinhua Hao, Ming Sun, Wenzheng Chen, He Sun</div>
-<div class="meta-line">First: 2025-11-18T07:40:38+00:00 · Latest: 2026-10-13T09:40:29+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2511.14208v3">Abs</a> · <a href="https://arxiv.org/pdf/2511.14208v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Video inverse problems are fundamental to streaming, telepresence, and AR/VR, where high perceptual quality must coexist with tight latency constraints. Diffusion-based priors currently deliver state-of-the-art reconstructions, but existing approaches either adapt image diffusion models with ad hoc temporal regularizers - leading to temporal artifacts - or rely on native video diffusion models whose iterative posterior sampling is far too slow for real-time use. We introduce InstantViR, an amortized inference framework for ultra-fast video reconstruction powered by a pre-trained video diffusion prior. We distill a powerful bidirectional video diffusion model (teacher) into a causal autoregressive student that maps a degraded video directly to its restored version in a single forward pass, inheriting the teacher&#x27;s strong temporal modeling while completely removing iterative test-time optimization. The distillation is prior-driven: it only requires the teacher diffusion model and known degradation operators, and does not rely on externally paired clean/noisy video data. To further boost throughput, we replace the video-diffusion backbone VAE with a high-efficiency LeanVAE via an innovative teacher-space regularized distillation scheme, enabling low-latency latent-space processing. Across streaming random inpainting, Gaussian deblurring and super-resolution, InstantViR matches or surpasses the reconstruction quality of diffusion-based baselines while running at over 35 FPS on NVIDIA A100 GPUs, achieving up to 100 times speedups over iterative video diffusion solvers. These results show that diffusion-based video reconstruction is compatible with real-time, interactive, editable, streaming scenarios, turning high-quality video restoration into a practical component of modern vision systems.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Video inverse problems are fundamental to streaming, telepresence, and AR/VR, where high perceptual quality must coexist with tight latency constraints.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261025_0520.html">20261025_0520</a>
+      <div class="history-list"><a href="archive/20261026_0519.html">20261026_0519</a>
+<a href="archive/20261025_0520.html">20261025_0520</a>
 <a href="archive/20261024_0547.html">20261024_0547</a>
 <a href="archive/20261023_0600.html">20261023_0600</a>
 <a href="archive/20261022_0602.html">20261022_0602</a>
